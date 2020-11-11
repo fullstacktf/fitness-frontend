@@ -1,0 +1,36 @@
+name: CI/CD
+
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+
+jobs:
+  linters_and_tests:
+    name: Linters and Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Use node.js 14.15.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.15.0"
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Run linters
+        run: |
+          cd frontend
+          npm run eslint
+          npm run stylelint
+
+      - name: Run tests
+        run: |
+          cd frontend
+          npm run test
