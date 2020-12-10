@@ -2,19 +2,16 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 const Container = styled.button`
-  background: ${props => props.color};
+  background: ${(props) => props.color};
   text-align: center;
   padding: 10px;
 `;
 
-interface AuthenticationButtonProps {
+interface ButtonProps {
   label?: string;
   onClick?: () => void;
 }
 
-export const AuthenticationButton: React.FC<AuthenticationButtonProps> = ({
-  label,
-  onClick
-}) => {
+export const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
   return <Container onClick={onClick}>{label}</Container>;
 };
