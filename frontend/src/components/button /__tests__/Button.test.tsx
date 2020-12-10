@@ -5,7 +5,7 @@ import { Button } from '../Button';
 describe('Button', () => {
   describe('Render', () => {
     test('Debería renderizar un botón con texto Register', () => {
-      render(<Button label="Register"/>);
+      render(<Button label="Register" />);
       const registerButtonText = screen.getByText('Register');
       expect(registerButtonText).toBeInTheDocument();
     });
