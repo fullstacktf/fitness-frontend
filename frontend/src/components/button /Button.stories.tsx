@@ -1,10 +1,12 @@
-import React from "react";
-import { Meta } from "@storybook/react/types-6-0";
-import { Button, ButtonProps } from "./Button";
+import React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Button, ButtonProps } from './Button';
 
 export default {
-  title: "Components/Button",
+  title: 'Components/Button',
   component: Button,
 } as Meta;
 
-export const Primary: React.VFC<{}> = () => <Button>Button</Button>;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});

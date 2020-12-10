@@ -14,7 +14,7 @@ const form = styled.form`
   opacity: 1;
 `;
 
-export const LoginForm = () => {
+export const LoginForm = (): JSX.Element => {
   return (
     <form>
       <h2>Sign In</h2>

@@ -7,11 +7,14 @@ const Container = styled.button`
   padding: 10px;
 `;
 
-interface ButtonProps {
+export interface ButtonProps {
   label?: string;
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
+export const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+}: ButtonProps) => {
   return <Container onClick={onClick}>{label}</Container>;
 };
