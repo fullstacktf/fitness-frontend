@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LoginForm } from '../login-form/LoginForm';
+import { RegisterForm } from '../register-form/RegisterForm';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -18,11 +18,11 @@ const Title = styled.div`
   margin-bottom: 3vh;
 `;
 
-export const Login: React.FC = () => {
+export const Register: React.FC = () => {
   return (
     <Container>
       <Title>YouLift</Title>
-      <LoginForm />
+      <RegisterForm />
     </Container>
   );
 };

@@ -2,9 +2,17 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 const Container = styled.button`
-  background: ${(props) => props.color};
-  text-align: center;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  border-radius: 1vh;
+  opacity: 1;
+  width: 33.3vh;
+  height: 3.8vh;
+  background: #ce3131 0% 0% no-repeat padding-box;
+  color: white;
+  margin: 1vh;
 `;
 
 export interface ButtonProps {

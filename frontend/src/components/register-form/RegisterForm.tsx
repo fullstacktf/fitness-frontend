@@ -26,7 +26,7 @@ const Title = styled.div`
   margin: 0.5vh;
 `;
 
-const Register = styled.div`
+const SignIn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@ const Register = styled.div`
   width: 100%;
 `;
 
-const RegisterLink = styled.a`
+const SignInLink = styled.a`
   width: 80%;
   height: 1.6vh;
   text-align: left;
@@ -45,22 +45,17 @@ const RegisterLink = styled.a`
   text-decoration: none;
 `;
 
-export const LoginForm = (): JSX.Element => {
+export const RegisterForm = (): JSX.Element => {
   return (
     <Form>
-      <Title>Sign In</Title>
+      <Title aria-label="Register Title">Register</Title>
       <TextField text="Email" type="email" />
-      <TextField
-        text="Password"
-        type="password"
-        link=""
-        linkText="Forgot your password?"
-      />
-      <Button label="Login" />
-      <Register>
-        <RegisterLink href="">Are you new to YouLift?</RegisterLink>
-        <Button label="Register" />
-      </Register>
+      <TextField text="Password" type="password" />
+      <Button label="Register" />
+      <SignIn>
+        <SignInLink href="">Already have an account?</SignInLink>
+        <Button label="Sign-In" />
+      </SignIn>
     </Form>
   );
 };
