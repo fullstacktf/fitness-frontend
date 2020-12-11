@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Button } from '../button /Button';
-import { TextField } from '../text-field/TextField';
+import { Button } from '../../atomic/button /Button';
+import { TextField } from '../../atomic/text-field/TextField';
 import styled from '@emotion/styled';
 
 const Form = styled.form`
