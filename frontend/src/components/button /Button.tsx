@@ -13,6 +13,8 @@ const Container = styled.button`
   background: #ce3131 0% 0% no-repeat padding-box;
   color: white;
   margin: 1vh;
+  border: none;
+  outline: none;
 `;
 
 export interface ButtonProps {
