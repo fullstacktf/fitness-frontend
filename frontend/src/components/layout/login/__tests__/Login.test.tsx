@@ -12,7 +12,5 @@ describe('Login', () => {
       const youliftText = screen.getByText('YouLift');
       expect(youliftText).toBeInTheDocument();
     });
-
-    test('Should test LoginForm exists', () => {});
   });
 });

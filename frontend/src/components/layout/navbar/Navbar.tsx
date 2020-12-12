@@ -3,7 +3,7 @@ import { NavbarElement } from '../../atomic/navbar-element/NavbarElement';
 
 export const Navbar: React.FC = (): JSX.Element => {
   return (
-    <div>
+    <div role="navigation">
       {/* here goes the route of the logo */}
       <img src="" alt="" />
       <ul>
