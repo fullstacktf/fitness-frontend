@@ -8,7 +8,7 @@ import { TeamMemberPanel } from '../team-member-panel/TeamMemberPanel';
 
 export const Landing: React.FC = (): JSX.Element => {
   return (
-    <div>
+    <div role="application">
       <Navbar />
       <Hero />
       <ReviewPanel />
