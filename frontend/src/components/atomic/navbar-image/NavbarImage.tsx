@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-export interface NavbarElementProps {
-  text: string;
+export interface NavbarImageProps {
+  imageRoute: string;
   link: string;
-  color?: string;
+  alt?: string;
 }
 
 const Element = styled.li`
@@ -15,18 +15,21 @@ const Element = styled.li`
 
 const Link = styled.a`
   text-decoration: none;
-  color: ${(props) => (props.color ? props.color : 'black')};
 `;
 
-export const NavbarElement: React.FC<NavbarElementProps> = ({
-  text,
+const Logo = styled.img`
+  height: 2.3vh;
+`;
+
+export const NavbarImage: React.FC<NavbarImageProps> = ({
+  imageRoute,
   link,
-  color,
-}: NavbarElementProps): JSX.Element => {
+  alt,
+}: NavbarImageProps): JSX.Element => {
   return (
     <Element>
-      <Link href={link} color={color}>
-        {text}
+      <Link href={link}>
+        <Logo src={imageRoute} alt={alt} />
       </Link>
     </Element>
   );
