@@ -1,4 +1,6 @@
 .dockerignore
 .git 
 .github
+.storybook
+.vscode
 README.md
