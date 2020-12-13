@@ -2,12 +2,18 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { NavbarElement } from '../NavbarElement';
 
-describe('NavBarElement', () => {
+describe('NavbarElement', () => {
   describe('Render', () => {
-    test('Debería renderizar un NavBar con texto Nav', () => {
-      render(<NavbarElement text="Nav" link="" />);
-      const NavBarElement = screen.getByText('Nav');
-      expect(NavBarElement).toBeInTheDocument();
+    test('Should test link text exists', () => {
+      render(<NavbarElement link="#" text="Test Link" />);
+      const text = screen.getByText('Test Link');
+      expect(text).toBeInTheDocument();
+    });
+
+    test('Should test link exists', () => {
+      render(<NavbarElement link="#" text="Test Link" />);
+      const link = screen.getByRole('link');
+      expect(link).toBeInTheDocument();
     });
   });
 });
