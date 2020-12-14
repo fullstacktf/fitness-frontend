@@ -42,7 +42,7 @@ export const FeaturePanel: React.FC = (): JSX.Element => {
         screenshotRoute=""
         title="Sound Notifications and Alarms"
         description="We will tell you when rest time is over, when to stop running, and when it is time to go to the gym. Until you hear the sound... Run, Forrest, Run!"
-        direction="right"
+        reverse
       />
       <Feature
         screenshotRoute=""

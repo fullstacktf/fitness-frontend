@@ -1,6 +1,10 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
+type ContentProps = {
+  reverse: boolean;
+};
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -8,10 +12,11 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Content = styled.div`
+const Content = styled.div<ContentProps>`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
   width: 80%;
 `;
 
@@ -53,40 +58,24 @@ export interface FeatureProps {
   screenshotRoute: string;
   title: string;
   description: string;
-  direction?: 'left' | 'right';
+  reverse?: boolean;
 }
 
 export const Feature: React.FC<FeatureProps> = ({
   screenshotRoute,
   title,
   description,
-  direction,
+  reverse,
 }: FeatureProps): JSX.Element => {
-  let content: JSX.Element;
-  if (direction === 'right') {
-    content = (
-      <Container>
-        <Content>
-          <Screenshot src={screenshotRoute} alt="" />
-          <TextContainer>
-            <Title>{title}</Title>
-            <Description>{description}</Description>
-          </TextContainer>
-        </Content>
-      </Container>
-    );
-  } else {
-    content = (
-      <Container>
-        <Content>
-          <TextContainer>
-            <Title>{title}</Title>
-            <Description>{description}</Description>
-          </TextContainer>
-          <Screenshot src={screenshotRoute} alt="" />
-        </Content>
-      </Container>
-    );
-  }
-  return content;
+  return (
+    <Container>
+      <Content reverse={reverse ?? false}>
+        <TextContainer>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+        </TextContainer>
+        <Screenshot src={screenshotRoute} alt="" />
+      </Content>
+    </Container>
+  );
 };
