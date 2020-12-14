@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Register } from './Register';
 
 export default {
-  title: 'Components/Register',
+  title: 'Components/Layout/Register',
   component: Register,
 } as Meta;
 

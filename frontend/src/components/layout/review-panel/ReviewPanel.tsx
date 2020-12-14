@@ -3,6 +3,7 @@ import { Review } from '../../atomic/review/Review';
 
 export const ReviewPanel: React.FC = (): JSX.Element => {
   return (
+<<<<<<< HEAD
     <div>
       <Review
         picture=""
@@ -22,6 +23,12 @@ export const ReviewPanel: React.FC = (): JSX.Element => {
         author="Manz"
         role="Web development mentor"
       />
+=======
+    <div role="presentation">
+      <Review picture="" text="" author="" role="" />
+      <Review picture="" text="" author="" role="" />
+      <Review picture="" text="" author="" role="" />
+>>>>>>> 49724a8436ba835b9f940bba0f410758bfc2988a
     </div>
   );
 };

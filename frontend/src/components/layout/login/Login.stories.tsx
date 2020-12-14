@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Login } from './Login';
 
 export default {
-  title: 'Components/Login',
+  title: 'Components/Layout/Login',
   component: Login,
 } as Meta;
 

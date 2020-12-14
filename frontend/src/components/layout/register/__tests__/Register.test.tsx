@@ -13,6 +13,6 @@ describe('Register', () => {
       expect(youliftText).toBeInTheDocument();
     });
 
-    test('Should test RegisterForm exists', () => {});
+    // TODO: Should test RegisterForm exists
   });
 });
