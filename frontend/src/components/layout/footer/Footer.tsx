@@ -16,11 +16,16 @@ const Box = styled.div`
   height: 100%;
   width: 70%;
   font-size: 2vh;
+  text-align: center;
+  font: italic normal 300 1.2vh/1.6vh Inter;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
 `;
 
 const Link = styled.a`
   text-decoration: none;
-  color: black;
+  color: inherit;
 `;
 
 export const Footer: React.FC = (): JSX.Element => {
