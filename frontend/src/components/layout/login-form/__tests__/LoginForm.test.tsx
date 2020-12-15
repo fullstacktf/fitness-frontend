@@ -35,6 +35,7 @@ describe('LoginForm', () => {
 
     test('Should test Login Button exists', () => {
       render(<LoginForm />);
+
       const loginButton = screen.getByText('Login');
       expect(loginButton).toBeInTheDocument();
     });
