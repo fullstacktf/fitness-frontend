@@ -5,16 +5,21 @@ import { Hero } from '../hero/Hero';
 import { Navbar } from '../navbar/Navbar';
 import { ReviewPanel } from '../review-panel/ReviewPanel';
 import { TeamMemberPanel } from '../team-member-panel/TeamMemberPanel';
+import styled from '@emotion/styled';
+
+const Container = styled.div`
+  width: 100%;
+`;
 
 export const Landing: React.FC = (): JSX.Element => {
   return (
-    <div role="application">
+    <Container role="application">
       <Navbar />
       <Hero />
       <ReviewPanel />
       <FeaturePanel />
       <TeamMemberPanel />
       <Footer />
-    </div>
+    </Container>
   );
 };
