@@ -12,6 +12,10 @@ const Container = styled.div`
   width: 100%;
   height: 8vh;
   background: white;
+  position: fixed;
+  top: 0;
+  box-shadow: 0vh 0vh 1.2vh #00000029;
+  opacity: 1;
 `;
 
 const Elements = styled.ul`
