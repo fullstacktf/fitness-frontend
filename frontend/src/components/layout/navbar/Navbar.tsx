@@ -35,13 +35,17 @@ export const Navbar: React.FC = (): JSX.Element => {
     <Container>
       <Logo src={YouLiftLogo} alt="YouLift Logo" />
       <Elements>
-        <NavbarElement text="Home" link="#" />
-        <NavbarElement text="Why" link="#" />
-        <NavbarElement text="Who" link="#" />
-        <NavbarElement text="Contact" link="#" />
-        <NavbarImage link="#" imageRoute={GithubLogo32} alt="Github" />
-        <NavbarElement text="Sign In" link="#" color="#CE3131" />
-        <NavbarElement text="Register" link="#" color="#CE3131" />
+        <NavbarElement text="Home" link="/" />
+        <NavbarElement text="Why" link="/#why" />
+        <NavbarElement text="Who" link="/#who" />
+        <NavbarElement text="Contact" link="/contact" />
+        <NavbarImage
+          link="https://github.com/fullstacktf/fitness-frontend"
+          imageRoute={GithubLogo32}
+          alt="Github"
+        />
+        <NavbarElement text="Sign In" link="/login" color="#CE3131" />
+        <NavbarElement text="Register" link="/register" color="#CE3131" />
       </Elements>
     </Container>
   );

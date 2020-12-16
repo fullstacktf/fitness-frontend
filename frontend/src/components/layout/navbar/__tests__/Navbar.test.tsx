@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Navbar } from '../Navbar';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 
 describe('Navbar', () => {
   beforeEach(() => {
-    render(<Navbar />);
+    const history = createMemoryHistory();
+    render(
+      <Router history={history}>
+        <Navbar />
+      </Router>
+    );
   });
 
   describe('Render', () => {
