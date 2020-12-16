@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { HashLink } from 'react-router-hash-link';
 
 export interface NavbarElementProps {
   text: string;
@@ -13,9 +14,11 @@ const Element = styled.li`
   align-items: center;
 `;
 
-const Link = styled.a`
-  text-decoration: none;
-  color: ${(props) => (props.color ? props.color : 'black')};
+const LinkContainer = styled.div`
+  a {
+    text-decoration: none;
+    color: ${(props) => (props.color ? props.color : 'black')};
+  }
 `;
 
 export const NavbarElement: React.FC<NavbarElementProps> = ({
@@ -25,9 +28,9 @@ export const NavbarElement: React.FC<NavbarElementProps> = ({
 }: NavbarElementProps): JSX.Element => {
   return (
     <Element>
-      <Link href={link} color={color}>
-        {text}
-      </Link>
+      <LinkContainer color={color}>
+        <HashLink to={link}>{text}</HashLink>
+      </LinkContainer>
     </Element>
   );
 };
