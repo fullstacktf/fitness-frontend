@@ -43,7 +43,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({
 }: TeamMemberProps): JSX.Element => {
   return (
     <Container>
-      <Image src={pictureRoute} alt="" />
+      <Image src={pictureRoute} alt={fullName} />
       <Name>{fullName}</Name>
       <Role>{role}</Role>
     </Container>

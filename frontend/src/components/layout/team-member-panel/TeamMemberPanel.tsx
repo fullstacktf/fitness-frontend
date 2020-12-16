@@ -8,12 +8,13 @@ const Container = styled.div`
 
 const Members = styled.div`
   display: flex;
+  justify-content: center;
 `;
 const H2 = styled.h2`
   height: 5vh;
 `;
 
-export const TeamMemberPanel: React.FC = (): JSX.Element => {
+export const TeamMemberPanel: React.FC = () => {
   return (
     <Container>
       <h1>The Team</h1>
