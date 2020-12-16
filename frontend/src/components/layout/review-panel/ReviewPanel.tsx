@@ -8,9 +8,6 @@ const Container = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   background: #ececec 0% 0% no-repeat padding-box;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   padding: 8vh 24vh;
 `;
 
