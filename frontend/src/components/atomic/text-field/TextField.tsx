@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 const P = styled.div`
-  font: normal normal bold 1.6vh/2.1vh Inter V;
+  font: normal normal bold 1.6vh/2.1vh Inter;
   letter-spacing: 0vh;
   color: #1b1b1b;
   opacity: 1;
@@ -24,7 +24,7 @@ const TextContainer = styled.div`
 `;
 
 const LINK = styled.a`
-  font: normal normal normal 1.2vh/1.6vh Inter V;
+  font: normal normal normal 1.2vh/1.6vh Inter;
   letter-spacing: 0vh;
   text-decoration: none;
   color: #3182ce;

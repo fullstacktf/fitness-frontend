@@ -19,7 +19,7 @@ const Form = styled.form`
 const Title = styled.div`
   text-align: left;
   width: 85%;
-  font: normal normal bold 3.4vh/4.3vh Inter V;
+  font: normal normal bold 3.4vh/4.3vh Inter;
   letter-spacing: 0vh;
   color: #1b1b1b;
   opacity: 1;
@@ -38,7 +38,7 @@ const RegisterLink = styled.a`
   width: 80%;
   height: 1.6vh;
   text-align: left;
-  font: normal normal normal 1.2vh/1.6vh Inter V;
+  font: normal normal normal 1.2vh/1.6vh Inter;
   letter-spacing: 0vh;
   color: #1b1b1b;
   opacity: 1;
