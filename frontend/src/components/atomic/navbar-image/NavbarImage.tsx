@@ -27,7 +27,7 @@ export const NavbarImage: React.FC<NavbarImageProps> = (
   return (
     <Element>
       <Link href={NavbarImageProps.link}>
-        <Logo src={NavbarImageProps.imageRoute} alt={alt} />
+        <Logo src={NavbarImageProps.imageRoute} alt={NavbarImageProps.alt} />
       </Link>
     </Element>
   );
