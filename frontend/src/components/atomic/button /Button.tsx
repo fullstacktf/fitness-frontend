@@ -22,9 +22,8 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  label,
-  onClick,
-}: ButtonProps) => {
-  return <Container onClick={onClick}>{label}</Container>;
+export const Button: React.FC<ButtonProps> = (ButtonProps) => {
+  return (
+    <Container onClick={ButtonProps.onClick}>{ButtonProps.label}</Container>
+  );
 };

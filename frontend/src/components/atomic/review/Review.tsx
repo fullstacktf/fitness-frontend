@@ -41,18 +41,13 @@ export interface ReviewProps {
   role: string;
 }
 
-export const Review: React.FC<ReviewProps> = ({
-  picture,
-  text,
-  author,
-  role,
-}: ReviewProps): JSX.Element => {
+export const Review: React.FC<ReviewProps> = (ReviewProps): JSX.Element => {
   return (
     <Container>
-      <img src={picture} alt="" />
-      <H1>{text}</H1>
-      <H2>{author}</H2>
-      <H3>{role}</H3>
+      <img src={ReviewProps.picture} alt="" />
+      <H1>{ReviewProps.text}</H1>
+      <H2>{ReviewProps.author}</H2>
+      <H3>{ReviewProps.role}</H3>
     </Container>
   );
 };

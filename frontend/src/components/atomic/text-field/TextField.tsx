@@ -37,19 +37,14 @@ export interface TextFieldProps {
   link?: string;
 }
 
-export const TextField: React.FC<TextFieldProps> = ({
-  text,
-  type,
-  linkText,
-  link,
-}: TextFieldProps) => {
+export const TextField: React.FC<TextFieldProps> = (TextFieldProps) => {
   return (
     <div>
       <TextContainer>
-        <P>{text}</P>
-        <LINK href={link}>{linkText}</LINK>
+        <P>{TextFieldProps.text}</P>
+        <LINK href={TextFieldProps.link}>{TextFieldProps.linkText}</LINK>
       </TextContainer>
-      <Input type={type} />
+      <Input type={TextFieldProps.type} />
     </div>
   );
 };
