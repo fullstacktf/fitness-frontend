@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 
 const Container = styled.div`
   text-align: center;
+  background: #ebeaeb 0% 0% no-repeat padding-box;
+  margin: 7vh 0;
 `;
 
 const Members = styled.div`
