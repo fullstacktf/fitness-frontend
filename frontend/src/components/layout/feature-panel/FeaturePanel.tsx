@@ -25,9 +25,9 @@ const Subtitle = styled.h2`
   opacity: 1;
 `;
 
-export const FeaturePanel: React.FC = (): JSX.Element => {
+export const FeaturePanel: React.FC = () => {
   return (
-    <Container>
+    <Container id="why">
       <Title>Why use YouLift?</Title>
       <Subtitle>
         Explore below to see why YouLift is a simple and powerful fitness
