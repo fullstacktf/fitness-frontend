@@ -25,7 +25,7 @@ const Subtitle = styled.h2`
   opacity: 1;
 `;
 
-export const FeaturePanel: React.FC = (): JSX.Element => {
+export const FeaturePanel: React.FC = () => {
   return (
     <Container id="why">
       <Title>Why use YouLift?</Title>
