@@ -71,6 +71,10 @@ class ObjectPropertyDef {
 function getListContent(objs: any[]) {
   const properties: ObjectPropertyDef[] = [];
 
+  if (objs === undefined) {
+    return;
+  }
+
   const objectProps = Object.getOwnPropertyNames(objs[0]);
 
   for (let index = 0; index < objectProps.length; index++) {
