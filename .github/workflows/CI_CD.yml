@@ -113,4 +113,4 @@ jobs:
             docker pull ${{ env.DOCKERHUB_REPO }}:${{ needs.build.outputs.tag }}
             docker stop ${{ env.CONTAINER_NAME }}
             docker rm ${{ env.CONTAINER_NAME }}
-            docker run -d --name ${{ env.CONTAINER_NAME }} -p 80:80 ${{ env.DOCKERHUB_REPO }}:${{ needs.build.outputs.tag }}
+            docker run -d --name ${{ env.CONTAINER_NAME }} -p 3000:80 ${{ env.DOCKERHUB_REPO }}:${{ needs.build.outputs.tag }}
