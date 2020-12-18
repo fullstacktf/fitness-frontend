@@ -61,20 +61,15 @@ export interface FeatureProps {
   reverse?: boolean;
 }
 
-export const Feature: React.FC<FeatureProps> = ({
-  screenshotRoute,
-  title,
-  description,
-  reverse,
-}: FeatureProps): JSX.Element => {
+export const Feature: React.FC<FeatureProps> = (FeatureProps): JSX.Element => {
   return (
     <Container>
-      <Content reverse={reverse ?? false}>
+      <Content reverse={FeatureProps.reverse ?? false}>
         <TextContainer>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
+          <Title>{FeatureProps.title}</Title>
+          <Description>{FeatureProps.description}</Description>
         </TextContainer>
-        <Screenshot src={screenshotRoute} alt="" />
+        <Screenshot src={FeatureProps.screenshotRoute} alt="" />
       </Content>
     </Container>
   );

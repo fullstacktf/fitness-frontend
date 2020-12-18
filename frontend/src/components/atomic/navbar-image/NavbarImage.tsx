@@ -21,15 +21,13 @@ const Logo = styled.img`
   height: 2.3vh;
 `;
 
-export const NavbarImage: React.FC<NavbarImageProps> = ({
-  imageRoute,
-  link,
-  alt,
-}: NavbarImageProps): JSX.Element => {
+export const NavbarImage: React.FC<NavbarImageProps> = (
+  NavbarImageProps
+): JSX.Element => {
   return (
     <Element>
-      <Link href={link}>
-        <Logo src={imageRoute} alt={alt} />
+      <Link href={NavbarImageProps.link}>
+        <Logo src={NavbarImageProps.imageRoute} alt={NavbarImageProps.alt} />
       </Link>
     </Element>
   );

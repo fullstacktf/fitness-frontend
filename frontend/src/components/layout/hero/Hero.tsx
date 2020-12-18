@@ -38,7 +38,7 @@ const Button = styled.a`
   text-decoration: none;
   padding: 1.5vh 3.5vh;
   background: #ffffff 0% 0% no-repeat padding-box;
-  font: normal normal normal 2vh/2.7vh Inter V;
+  font: normal normal normal 2vh/2.7vh Inter;
   border-radius: 1vh;
 `;
 

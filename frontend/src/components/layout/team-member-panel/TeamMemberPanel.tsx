@@ -16,7 +16,7 @@ const H2 = styled.h2`
 
 export const TeamMemberPanel: React.FC = () => {
   return (
-    <Container>
+    <Container id="who">
       <h1>The Team</h1>
       <H2>These are the guys responsible for developing the app.</H2>
       <Members>

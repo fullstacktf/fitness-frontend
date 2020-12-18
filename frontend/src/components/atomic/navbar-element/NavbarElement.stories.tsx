@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { NavbarElement, NavbarElementProps } from './NavbarElement';
 
 export default {
-  title: 'Components/atomic/NavbarElement',
+  title: 'Components/Atomic/NavbarElement',
   component: NavbarElement,
 } as Meta;
 

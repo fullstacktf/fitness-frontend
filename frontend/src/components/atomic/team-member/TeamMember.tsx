@@ -36,16 +36,17 @@ export interface TeamMemberProps {
   role: string;
 }
 
-export const TeamMember: React.FC<TeamMemberProps> = ({
-  pictureRoute,
-  fullName,
-  role,
-}: TeamMemberProps): JSX.Element => {
+export const TeamMember: React.FC<TeamMemberProps> = (
+  TeamMemberProps
+): JSX.Element => {
   return (
     <Container>
-      <Image src={pictureRoute} alt={fullName} />
-      <Name>{fullName}</Name>
-      <Role>{role}</Role>
+      <Image
+        src={TeamMemberProps.pictureRoute}
+        alt={TeamMemberProps.fullName}
+      />
+      <Name>{TeamMemberProps.fullName}</Name>
+      <Role>{TeamMemberProps.role}</Role>
     </Container>
   );
 };
