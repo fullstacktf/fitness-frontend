@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { Feature, FeatureProps } from './Feature';
 
 export default {
-  title: 'Components/atomic/Feature',
+  title: 'Components/Atomic/Feature',
   component: Feature,
 } as Meta;
 

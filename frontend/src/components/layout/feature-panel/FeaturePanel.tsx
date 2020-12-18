@@ -19,15 +19,15 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   text-align: center;
-  font: normal normal normal 20px/30px Inter V;
+  font: normal normal normal 20px/30px Inter;
   letter-spacing: 0px;
   color: #1b1b1b;
   opacity: 1;
 `;
 
-export const FeaturePanel: React.FC = (): JSX.Element => {
+export const FeaturePanel: React.FC = () => {
   return (
-    <Container>
+    <Container id="why">
       <Title>Why use YouLift?</Title>
       <Subtitle>
         Explore below to see why YouLift is a simple and powerful fitness

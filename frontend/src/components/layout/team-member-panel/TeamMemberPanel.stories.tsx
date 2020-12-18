@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { TeamMemberPanel } from './TeamMemberPanel';
 
 export default {
-  title: 'Components/layout/TeamMemberPanel',
+  title: 'Components/Layout/TeamMemberPanel',
   component: TeamMemberPanel,
 } as Meta;
 
