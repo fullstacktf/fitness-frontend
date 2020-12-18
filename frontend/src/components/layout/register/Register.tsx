@@ -16,7 +16,7 @@ const Container = styled.div`
 const Title = styled.div`
   width: 100%;
   text-align: center;
-  font: normal normal bold 5vh/6vh Inter V;
+  font: normal normal bold 5vh/6vh Inter;
   margin-top: 15vh;
   margin-bottom: 3vh;
 `;

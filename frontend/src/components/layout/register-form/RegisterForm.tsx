@@ -23,7 +23,7 @@ const Form = styled.form`
 const Title = styled.div`
   text-align: left;
   width: 85%;
-  font: normal normal bold 3.4vh/4.3vh Inter V;
+  font: normal normal bold 3.4vh/4.3vh Inter;
   letter-spacing: 0vh;
   color: #1b1b1b;
   opacity: 1;

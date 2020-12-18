@@ -19,7 +19,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   text-align: center;
-  font: normal normal normal 20px/30px Inter V;
+  font: normal normal normal 20px/30px Inter;
   letter-spacing: 0px;
   color: #1b1b1b;
   opacity: 1;

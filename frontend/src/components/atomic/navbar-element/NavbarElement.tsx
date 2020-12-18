@@ -22,17 +22,17 @@ const LinkContainer = styled.div`
   }
 `;
 
-export const NavbarElement: React.FC<NavbarElementProps> = ({
-  text,
-  link,
-  color,
-  onClick,
-}: NavbarElementProps): JSX.Element => {
+export const NavbarElement: React.FC<NavbarElementProps> = (
+  NavbarElementProps
+): JSX.Element => {
   return (
     <Element>
-      <LinkContainer color={color}>
-        <HashLink to={link} onClick={onClick}>
-          {text}
+      <LinkContainer color={NavbarElementProps.color}>
+        <HashLink
+          to={NavbarElementProps.link}
+          onClick={NavbarElementProps.onClick}
+        >
+          {NavbarElementProps.text}
         </HashLink>
       </LinkContainer>
     </Element>
