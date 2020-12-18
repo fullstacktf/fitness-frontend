@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Register } from '../Register';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 
 describe('Register', () => {
   beforeEach(() => {
-    render(<Register />);
+    const history = createMemoryHistory();
+    render(
+      <Router history={history}>
+        <Register />
+      </Router>
+    );
   });
 
   describe('Render', () => {

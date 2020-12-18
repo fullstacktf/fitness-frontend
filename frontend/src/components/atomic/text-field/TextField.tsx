@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const P = styled.div`
+const Label = styled.label`
   font: normal normal bold 1.6vh/2.1vh Inter;
   letter-spacing: 0vh;
   color: #1b1b1b;
@@ -31,20 +31,26 @@ const LINK = styled.a`
 `;
 
 export interface TextFieldProps {
+  //extends Partial<Pick<UseFormMethods, 'register' | 'errors'>> {
   text: string;
-  type: 'text' | 'email' | 'password';
+  type: 'text' | 'email' | 'password' | 'date' | 'datetime-local';
   linkText?: string;
   link?: string;
+  register?: any;
 }
 
 export const TextField: React.FC<TextFieldProps> = (TextFieldProps) => {
   return (
     <div>
       <TextContainer>
-        <P>{TextFieldProps.text}</P>
+        <Label htmlFor={TextFieldProps.text}>{TextFieldProps.text}</Label>
         <LINK href={TextFieldProps.link}>{TextFieldProps.linkText}</LINK>
       </TextContainer>
-      <Input type={TextFieldProps.type} />
+      <Input
+        name={TextFieldProps.text}
+        type={TextFieldProps.type}
+        ref={TextFieldProps.register}
+      />
     </div>
   );
 };

@@ -6,6 +6,7 @@ export interface NavbarElementProps {
   text: string;
   link: string;
   color?: string;
+  onClick?: () => void;
 }
 
 const Element = styled.li`
@@ -27,7 +28,10 @@ export const NavbarElement: React.FC<NavbarElementProps> = (
   return (
     <Element>
       <LinkContainer color={NavbarElementProps.color}>
-        <HashLink to={NavbarElementProps.link}>
+        <HashLink
+          to={NavbarElementProps.link}
+          onClick={NavbarElementProps.onClick}
+        >
           {NavbarElementProps.text}
         </HashLink>
       </LinkContainer>

@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { RegisterForm } from '../register-form/RegisterForm';
 import styled from '@emotion/styled';
+import { Navbar } from '../navbar/Navbar';
+import { useHistory } from 'react-router-dom';
+import { isLogged } from '../../../utils/utils';
 
 const Container = styled.div`
   display: flex;
@@ -19,8 +22,17 @@ const Title = styled.div`
 `;
 
 export const Register: React.FC = () => {
+  const history = useHistory();
+
+  React.useEffect(() => {
+    if (isLogged()) {
+      history.push('/');
+    }
+  });
+
   return (
     <Container>
+      <Navbar />
       <Title>YouLift</Title>
       <RegisterForm />
     </Container>
