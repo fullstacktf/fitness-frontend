@@ -117,14 +117,6 @@ export const RegisterForm = (): JSX.Element => {
         {errors.Name && <Error>* {errors.Name.message}</Error>}
       </ErrorContainer>
       <TextField
-        text="Surname"
-        type="text"
-        register={register({ required: 'Surname Required' })}
-      />
-      <ErrorContainer>
-        {errors.Surname && <Error>* {errors.Surname.message}</Error>}
-      </ErrorContainer>
-      <TextField
         text="Email"
         type="email"
         register={register({
