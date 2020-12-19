@@ -6,32 +6,30 @@ import { DEVELOPMENT_URL } from '../../../utils/utils';
 import { Navbar } from '../navbar/Navbar';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
   width: 100%;
+  height: 100%;
 `;
 
 const ListContainer = styled.div`
   padding: 2vh;
 `;
 
-export const UserCrud = (): JSX.Element => {
-  const [users, setUsers] = React.useState([{}]);
-  const getUsers = (): Promise<any> => {
+export const ExerciseCategoryCrud = (): JSX.Element => {
+  const [execiseCategories, setExerciseCategory] = React.useState([{}]);
+  const getExerciseCategory = (): Promise<any> => {
     axios.defaults.withCredentials = true;
     return axios
-      .post(DEVELOPMENT_URL + '/v1/user/filter', {})
+      .post(DEVELOPMENT_URL + '/v1/exerciseCategory/filter', {})
       .then((response) => response.data)
       .catch((error) => error);
   };
 
   React.useEffect(() => {
-    getUsers().then((data) => {
+    getExerciseCategory().then((data) => {
       if (data === Error) {
         console.log(data);
       } else {
-        setUsers(data);
+        setExerciseCategory(data);
       }
     });
   }, []);
@@ -40,7 +38,7 @@ export const UserCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={users} />
+        <DynamicList objs={execiseCategories} />
       </ListContainer>
     </Container>
   );

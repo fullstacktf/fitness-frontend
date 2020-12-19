@@ -6,18 +6,16 @@ export interface DynamicListProps {
 }
 
 const Container = styled.div`
+  margin-top: 10vh;
   font: normal normal bold 3.5vh/4vh Inter;
   color: #ffffff;
-  background-color: #ce3131;
   box-shadow: 0vh 0vh 1.2vh #00000029;
-  width: 100%;
-  height: 100%;
+  padding: 2vh;
 `;
 
 const ListContainer = styled.table`
   border-collapse: collapse;
   width: 100%;
-  height: 100%;
 `;
 
 const ListHeader = styled.tr`
@@ -35,6 +33,7 @@ const ListRow = styled.tr`
   width: 100%;
   text-align: center;
   box-shadow: 0vh 0vh 1.2vh #00000029;
+  background-color: #ce3131;
 `;
 
 const ListItem = styled.td`
@@ -51,7 +50,7 @@ function checkPropertyName(property: ObjectPropertyDef) {
       return true;
     }
   } else if (typeof property.value === 'number') {
-    if (name === 'id') return false;
+    if (name === 'id' || name === 'categoryid') return false;
     else return true;
   }
 }

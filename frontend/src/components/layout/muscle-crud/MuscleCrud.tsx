@@ -6,32 +6,30 @@ import { DEVELOPMENT_URL } from '../../../utils/utils';
 import { Navbar } from '../navbar/Navbar';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
   width: 100%;
+  height: 100%;
 `;
 
 const ListContainer = styled.div`
   padding: 2vh;
 `;
 
-export const UserCrud = (): JSX.Element => {
-  const [users, setUsers] = React.useState([{}]);
-  const getUsers = (): Promise<any> => {
+export const MuscleCrud = (): JSX.Element => {
+  const [muscle, setMuscle] = React.useState([{}]);
+  const getMuscle = (): Promise<any> => {
     axios.defaults.withCredentials = true;
     return axios
-      .post(DEVELOPMENT_URL + '/v1/user/filter', {})
+      .post(DEVELOPMENT_URL + '/v1/muscle/filter', {})
       .then((response) => response.data)
       .catch((error) => error);
   };
 
   React.useEffect(() => {
-    getUsers().then((data) => {
+    getMuscle().then((data) => {
       if (data === Error) {
         console.log(data);
       } else {
-        setUsers(data);
+        setMuscle(data);
       }
     });
   }, []);
@@ -40,7 +38,7 @@ export const UserCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={users} />
+        <DynamicList objs={muscle} />
       </ListContainer>
     </Container>
   );
