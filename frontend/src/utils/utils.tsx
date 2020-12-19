@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosStatic } from 'axios';
 import Cookies from 'js-cookie';
 
 export const DEVELOPMENT_URL = 'http://localhost:8080';
@@ -36,4 +36,22 @@ export const logout = (): void => {
     Cookies.remove(COOKIE_NAME, { path: '/', domain: DEVELOPMENT_DOMAIN });
     window.location.replace('/');
   }
+};
+
+export const getUserInformation = async (): Promise<any> => {
+  axios.defaults.withCredentials = true;
+  const ID = await getUserID();
+  return axios
+    .get(DEVELOPMENT_URL + `/v1/user/${ID}`)
+    .then((user) => user.data)
+    .catch((error) => error);
+};
+
+export const getUserStats = async (): Promise<any> => {
+  axios.defaults.withCredentials = true;
+  const ID = await getUserID();
+  return axios
+    .get(DEVELOPMENT_URL + `/v1/userStat/${ID}`)
+    .then((stats) => stats.data)
+    .catch((error) => error);
 };
