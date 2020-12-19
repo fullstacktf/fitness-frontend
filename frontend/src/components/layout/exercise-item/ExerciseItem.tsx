@@ -8,7 +8,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
+const ContainerItem = styled.div`
+  margin: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const Video = styled.iframe`
   width: 50vh;
   height: 31.5vh;
@@ -17,10 +22,17 @@ const Video = styled.iframe`
 export const ExerciseItem: React.FC = () => {
   return (
     <div>
-      <ItemHeader itemName="Aqui to' loko mandandole" category="mambiche" />
-      <Description text="dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche " />
+      <ItemHeader
+        itemName="asdcasdfsdfasrgfascxdvaserfa"
+        category="asdfasdga"
+      />
+      <ContainerItem>
+        <Description text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et." />
+      </ContainerItem>
       <Container>
-        <Video src=""> </Video>
+        <Video src="https://www.youtube.com/watch?v=xTeX1YEiAdE&ab_channel=KristinaRybalchenko">
+          {' '}
+        </Video>
       </Container>
     </div>
   );

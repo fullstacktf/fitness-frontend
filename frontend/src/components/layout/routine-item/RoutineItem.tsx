@@ -6,14 +6,20 @@ import { RoutinePanel } from '../routine-panel/RoutinePanel';
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+const ContainerItem = styled.div`
+  margin: 4vh;
 `;
 export const RoutineItem: React.FC = () => {
   return (
     <div>
-      <ItemHeader itemName="Aqui to' loko mandandole" category="mambiche" />
-      <Description text="dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche " />
+      <ItemHeader itemName="asdjhfbalsj ndfljab" category="dasfasdf" />
       <Container>
+        <ContainerItem>
+          <Description text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et." />
+        </ContainerItem>
         <RoutinePanel />
       </Container>
     </div>

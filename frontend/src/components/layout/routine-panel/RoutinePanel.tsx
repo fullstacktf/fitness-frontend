@@ -9,8 +9,8 @@ const Container = styled.div`
   grid-row-gap: 10px;
   background-color: #ce3131;
   padding: 4vh;
-  margin: 10vh 0vh;
-  width: 100vh;
+  margin: 0;
+  width: 144vh;
 `;
 
 export const RoutinePanel: React.FC = (): JSX.Element => {
