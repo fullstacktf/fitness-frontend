@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ProfileElement } from '../../atomic/profile-element/ProfileElement';
 import { Footer } from '../footer/Footer';
 import { Navbar } from '../navbar/Navbar';
-import { RoutinePanel } from '../routine-panel/RoutinePanel';
+import { UserRoutinePanel } from '../user-routine-panel/UserRoutinePanel';
 import defaultProfilePicture from './assets/defaultProfilePicture.png';
 import defaultExercisePicture from './assets/defaultExercisePicture.svg';
 
@@ -113,7 +113,7 @@ export const Profile: React.FC = () => {
             />
           </Box>
           <Box>
-            <RoutinePanel
+            <UserRoutinePanel
               imageRoute={defaultExercisePicture}
               name={routineName}
               description={routineDescription}

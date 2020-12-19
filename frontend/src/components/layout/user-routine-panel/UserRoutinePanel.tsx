@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import defaultExercisePicture from './assets/defaultExercisePicture.svg';
 import { RoutineExercise } from '../../atomic/routine-exercise/RoutineExercise';
-import { JsxEmit } from 'typescript';
 
 const Container = styled.div`
   display: flex;
@@ -67,20 +66,20 @@ const Description = styled.div`
   margin: 0vh 4vh;
 `;
 
-export interface RoutinePanelProps {
+export interface UserRoutinePanelProps {
   imageRoute?: string;
   name: string;
   description: string;
   exercises: any[];
 }
 
-export const RoutinePanel: React.FC<RoutinePanelProps> = (
-  RoutinePanelProps
+export const UserRoutinePanel: React.FC<UserRoutinePanelProps> = (
+  UserRoutinePanelProps
 ) => {
   const [isEmpty, setIsEmpty] = React.useState(true);
 
   const fillExercisesPanel = (): JSX.Element[] => {
-    const elements = RoutinePanelProps.exercises.map((exercise) => {
+    const elements = UserRoutinePanelProps.exercises.map((exercise) => {
       return (
         <RoutineExercise
           key={exercise.ID}
@@ -97,25 +96,25 @@ export const RoutinePanel: React.FC<RoutinePanelProps> = (
 
   React.useEffect(() => {
     if (
-      RoutinePanelProps.exercises.length !== 0 &&
-      RoutinePanelProps.exercises[0].ID !== undefined
+      UserRoutinePanelProps.exercises.length !== 0 &&
+      UserRoutinePanelProps.exercises[0].ID !== undefined
     ) {
       setIsEmpty(false);
     } else {
       setIsEmpty(true);
     }
-  }, [RoutinePanelProps.exercises]);
+  }, [UserRoutinePanelProps.exercises]);
 
   return (
     <Container>
       <Panel>
         <RoutinePicture
-          src={RoutinePanelProps.imageRoute}
-          alt={RoutinePanelProps.name + 'routine picture'}
+          src={UserRoutinePanelProps.imageRoute}
+          alt={UserRoutinePanelProps.name + 'routine picture'}
         />
         <Content>
-          <Name>{RoutinePanelProps.name}</Name>
-          <Description>{RoutinePanelProps.description}</Description>
+          <Name>{UserRoutinePanelProps.name}</Name>
+          <Description>{UserRoutinePanelProps.description}</Description>
         </Content>
       </Panel>
       <ExercisesPanel>{isEmpty ? '' : fillExercisesPanel()}</ExercisesPanel>
