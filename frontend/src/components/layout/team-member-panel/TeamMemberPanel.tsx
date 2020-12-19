@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 const Container = styled.div`
   text-align: center;
   background: #ebeaeb 0% 0% no-repeat padding-box;
-  margin: 7vh 0;
   padding-top: 4vh;
 `;
 
@@ -15,7 +14,6 @@ const Members = styled.div`
 `;
 const H1 = styled.h1`
   font: normal normal bold 2.8vh/3vh Inter;
-  margin: ;
 `;
 const H2 = styled.h2`
   height: 5vh;
