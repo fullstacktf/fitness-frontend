@@ -4,8 +4,15 @@ import { Footer } from '../footer/Footer';
 import { Navbar } from '../navbar/Navbar';
 import { RoutinePanel } from '../routine-panel/RoutinePanel';
 import defaultProfilePicture from './assets/defaultProfilePicture.png';
+import defaultExercisePicture from './assets/defaultExercisePicture.svg';
+
 import styled from '@emotion/styled';
-import { getUserInformation, getUserStats } from '../../../utils/utils';
+import {
+  getUserInformation,
+  getUserRoutine,
+  getUserRoutineExercises,
+  getUserStats,
+} from '../../../utils/utils';
 
 export interface ProfileProps {
   imageRoute?: string;
@@ -42,6 +49,8 @@ const Content = styled.div`
 `;
 
 const FooterContainer = styled.div`
+  position: relative;
+  bottom: 0;
   width: 99vw;
 `;
 
@@ -51,20 +60,43 @@ export const Profile: React.FC = () => {
   const [userWeight, setUserWeight] = React.useState(String);
   const [userBiography, setUserBiography] = React.useState(String);
 
+  const [routineName, setRoutineName] = React.useState(String);
+  const [routineDescription, setRoutineDescription] = React.useState(String);
+  const [routineExercises, setRoutineExercises] = React.useState([{}]);
+
   const fillUserInformation = () => {
     getUserInformation().then((user) => {
-      setUserName(user.Name);
-      setUserBiography(user.Biography);
+      if (user !== Error) {
+        setUserName(user.Name);
+        setUserBiography(user.Biography);
+      }
     });
     getUserStats().then((stats) => {
-      setUserHeight(stats.Height);
-      setUserWeight(stats.LastWeight);
+      if (stats !== Error) {
+        setUserHeight(stats.Height);
+        setUserWeight(stats.LastWeight);
+      }
+    });
+  };
+
+  const fillRoutineInformation = () => {
+    getUserRoutine().then((routine) => {
+      if (routine !== Error) {
+        setRoutineName(routine.Name);
+        setRoutineDescription(routine.Description);
+      }
+    });
+    getUserRoutineExercises().then((exercises) => {
+      if (exercises !== Error) {
+        setRoutineExercises(exercises);
+      }
     });
   };
 
   React.useEffect(() => {
     fillUserInformation();
-  });
+    fillRoutineInformation();
+  }, []);
 
   return (
     <Container>
@@ -82,9 +114,10 @@ export const Profile: React.FC = () => {
           </Box>
           <Box>
             <RoutinePanel
-              imageRoute={defaultProfilePicture}
-              name="Weight Loss"
-              description="Breve descripcion de la rutina"
+              imageRoute={defaultExercisePicture}
+              name={routineName}
+              description={routineDescription}
+              exercises={routineExercises}
             />
           </Box>
         </Box>

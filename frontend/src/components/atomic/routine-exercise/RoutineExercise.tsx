@@ -6,8 +6,7 @@ export interface RoutineExerciseProps {
   name: string;
   reps: string;
   series: string;
-  rest: string;
-  commentary?: string;
+  description?: string;
 }
 const Container = styled.div`
   display: flex;
@@ -33,6 +32,7 @@ const Box = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  width: 50%;
   margin: 0vh 5vh;
 `;
 
@@ -99,14 +99,13 @@ export const RoutineExercise: React.FC<RoutineExerciseProps> = (
           <Datas>
             <Data>Series: {RoutineExerciseProps.series}</Data>
             <Data>Reps: {RoutineExerciseProps.reps}</Data>
-            <Data>Rest Time: {RoutineExerciseProps.rest}</Data>
           </Datas>
         </Content>
       </Box>
       <Box>
         <Content>
-          <Entry>Commentary</Entry>
-          <Commentary>{RoutineExerciseProps.commentary}</Commentary>
+          <Entry>Description:</Entry>
+          <Commentary>{RoutineExerciseProps.description}</Commentary>
         </Content>
       </Box>
     </Container>

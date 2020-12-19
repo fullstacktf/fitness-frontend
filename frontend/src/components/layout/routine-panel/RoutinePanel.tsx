@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import defaultExercisePicture from './assets/defaultExercisePicture.svg';
 import { RoutineExercise } from '../../atomic/routine-exercise/RoutineExercise';
+import { JsxEmit } from 'typescript';
 
 const Container = styled.div`
   display: flex;
@@ -70,11 +71,41 @@ export interface RoutinePanelProps {
   imageRoute?: string;
   name: string;
   description: string;
+  exercises: any[];
 }
 
 export const RoutinePanel: React.FC<RoutinePanelProps> = (
   RoutinePanelProps
 ) => {
+  const [isEmpty, setIsEmpty] = React.useState(true);
+
+  const fillExercisesPanel = (): JSX.Element[] => {
+    const elements = RoutinePanelProps.exercises.map((exercise) => {
+      return (
+        <RoutineExercise
+          key={exercise.ID}
+          imageRoute={defaultExercisePicture}
+          name={exercise.BaseExercise.Name}
+          reps={exercise.Repetitions}
+          series={exercise.Series}
+          description={exercise.BaseExercise.Description}
+        />
+      );
+    });
+    return elements;
+  };
+
+  React.useEffect(() => {
+    if (
+      RoutinePanelProps.exercises.length !== 0 &&
+      RoutinePanelProps.exercises[0].ID !== undefined
+    ) {
+      setIsEmpty(false);
+    } else {
+      setIsEmpty(true);
+    }
+  }, [RoutinePanelProps.exercises]);
+
   return (
     <Container>
       <Panel>
@@ -87,48 +118,7 @@ export const RoutinePanel: React.FC<RoutinePanelProps> = (
           <Description>{RoutinePanelProps.description}</Description>
         </Content>
       </Panel>
-      <ExercisesPanel>
-        <RoutineExercise
-          imageRoute={defaultExercisePicture}
-          name="Bench Press"
-          reps="3"
-          series="3"
-          rest="3 minutes"
-          commentary="Last time you did... Excellent! You completed all your series."
-        />
-        <RoutineExercise
-          imageRoute={defaultExercisePicture}
-          name="Bench Press"
-          reps="3"
-          series="3"
-          rest="3 minutes"
-          commentary="Last time you did... Excellent! You completed all your series."
-        />
-        <RoutineExercise
-          imageRoute={defaultExercisePicture}
-          name="Bench Press"
-          reps="3"
-          series="3"
-          rest="3 minutes"
-          commentary="Last time you did... Excellent! You completed all your series."
-        />
-        <RoutineExercise
-          imageRoute={defaultExercisePicture}
-          name="Bench Press"
-          reps="3"
-          series="3"
-          rest="3 minutes"
-          commentary="Last time you did... Excellent! You completed all your series."
-        />
-        <RoutineExercise
-          imageRoute={defaultExercisePicture}
-          name="Bench Press"
-          reps="3"
-          series="3"
-          rest="3 minutes"
-          commentary="Last time you did... Excellent! You completed all your series."
-        />
-      </ExercisesPanel>
+      <ExercisesPanel>{isEmpty ? '' : fillExercisesPanel()}</ExercisesPanel>
     </Container>
   );
 };
