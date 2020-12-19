@@ -68,12 +68,8 @@ class ObjectPropertyDef {
   }
 }
 
-function getListContent(objs: any[]) {
+function getListContent(objs: any[]): JSX.Element {
   const properties: ObjectPropertyDef[] = [];
-
-  if (objs === undefined) {
-    return;
-  }
 
   const objectProps = Object.getOwnPropertyNames(objs[0]);
 

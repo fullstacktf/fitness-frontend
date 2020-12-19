@@ -4,6 +4,7 @@ import { Landing } from './components/layout/landing/Landing';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Login } from './components/layout/login/Login';
 import { Register } from './components/layout/register/Register';
+import { UserCrud } from './components/layout/user-crud/UserCrud';
 
 function App(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ function App(): JSX.Element {
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/userCrud" component={UserCrud} />
         </Switch>
       </Router>
     </div>
