@@ -11,8 +11,8 @@ const Container = styled.div`
 export const RoutineItem: React.FC = () => {
   return (
     <div>
-      <ItemHeader itemName="" category="" />
-      <Description text="" />
+      <ItemHeader itemName="Aqui to' loko mandandole" category="mambiche" />
+      <Description text="dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche " />
       <Container>
         <RoutinePanel />
       </Container>

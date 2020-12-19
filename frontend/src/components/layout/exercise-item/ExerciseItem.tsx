@@ -17,8 +17,8 @@ const Video = styled.iframe`
 export const ExerciseItem: React.FC = () => {
   return (
     <div>
-      <ItemHeader itemName="" category="" />
-      <Description text="" />
+      <ItemHeader itemName="Aqui to' loko mandandole" category="mambiche" />
+      <Description text="dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche dale mambiche, va rompiendo piche roque roque roque, me chupó el caniche " />
       <Container>
         <Video src=""> </Video>
       </Container>
