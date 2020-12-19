@@ -6,20 +6,26 @@ const Container = styled.div`
   text-align: center;
   background: #ebeaeb 0% 0% no-repeat padding-box;
   margin: 7vh 0;
+  padding-top: 4vh;
 `;
 
 const Members = styled.div`
   display: flex;
   justify-content: center;
 `;
+const H1 = styled.h1`
+  font: normal normal bold 2.8vh/3vh Inter;
+  margin: ;
+`;
 const H2 = styled.h2`
   height: 5vh;
+  font: normal normal normal 2vh/3vh Inter;
 `;
 
 export const TeamMemberPanel: React.FC = () => {
   return (
     <Container id="who">
-      <h1>The Team</h1>
+      <H1>The Team</H1>
       <H2>These are the guys responsible for developing the app.</H2>
       <Members>
         <TeamMember
