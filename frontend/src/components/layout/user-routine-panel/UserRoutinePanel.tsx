@@ -76,7 +76,7 @@ export interface UserRoutinePanelProps {
 export const UserRoutinePanel: React.FC<UserRoutinePanelProps> = (
   UserRoutinePanelProps
 ) => {
-  const [isEmpty, setIsEmpty] = React.useState(true);
+  const [isRoutineEmpty, setIsRoutineEmpty] = React.useState(true);
 
   const fillExercisesPanel = (): JSX.Element[] => {
     const elements = UserRoutinePanelProps.exercises.map((exercise) => {
@@ -94,30 +94,39 @@ export const UserRoutinePanel: React.FC<UserRoutinePanelProps> = (
     return elements;
   };
 
-  React.useEffect(() => {
-    if (
-      UserRoutinePanelProps.exercises.length !== 0 &&
-      UserRoutinePanelProps.exercises[0].ID !== undefined
-    ) {
-      setIsEmpty(false);
-    } else {
-      setIsEmpty(true);
-    }
-  }, [UserRoutinePanelProps.exercises]);
-
-  return (
-    <Container>
+  const fillRoutineInformation = (): JSX.Element => {
+    return (
       <Panel>
         <RoutinePicture
           src={UserRoutinePanelProps.imageRoute}
           alt={UserRoutinePanelProps.name + 'routine picture'}
         />
         <Content>
-          <Name>{UserRoutinePanelProps.name}</Name>
+          <Name>{UserRoutinePanelProps.name ?? 'No Routine Assigned'}</Name>
           <Description>{UserRoutinePanelProps.description}</Description>
         </Content>
       </Panel>
-      <ExercisesPanel>{isEmpty ? '' : fillExercisesPanel()}</ExercisesPanel>
+    );
+  };
+
+  React.useEffect(() => {
+    if (
+      UserRoutinePanelProps.exercises.length !== 0 &&
+      UserRoutinePanelProps.exercises[0].ID !== undefined &&
+      UserRoutinePanelProps.name
+    ) {
+      setIsRoutineEmpty(false);
+    } else {
+      setIsRoutineEmpty(true);
+    }
+  }, [UserRoutinePanelProps]);
+
+  return (
+    <Container>
+      {fillRoutineInformation()}
+      <ExercisesPanel>
+        {isRoutineEmpty ? '' : fillExercisesPanel()}
+      </ExercisesPanel>
     </Container>
   );
 };
