@@ -21,13 +21,14 @@ const Name = styled.h1`
   flex-grow: 1;
   font-size: 2vh;
   text-align: center;
-  font: normal normal bold 2.4vh/3.2vh V;
+  font: normal normal bold 2.4vh/3.2vh Inter;
 `;
 
 const Role = styled.p`
   color: #aaaaaa;
   font-size: 1.8vh;
-  font: italic normal 300 1.6vh/2.1vh V;
+  font: italic normal 300 1.6vh/2.1vh Inter;
+  margin: 0 0 6vh 0;
 `;
 
 export interface TeamMemberProps {
@@ -36,16 +37,17 @@ export interface TeamMemberProps {
   role: string;
 }
 
-export const TeamMember: React.FC<TeamMemberProps> = ({
-  pictureRoute,
-  fullName,
-  role,
-}: TeamMemberProps): JSX.Element => {
+export const TeamMember: React.FC<TeamMemberProps> = (
+  TeamMemberProps
+): JSX.Element => {
   return (
     <Container>
-      <Image src={pictureRoute} alt={fullName} />
-      <Name>{fullName}</Name>
-      <Role>{role}</Role>
+      <Image
+        src={TeamMemberProps.pictureRoute}
+        alt={TeamMemberProps.fullName}
+      />
+      <Name>{TeamMemberProps.fullName}</Name>
+      <Role>{TeamMemberProps.role}</Role>
     </Container>
   );
 };

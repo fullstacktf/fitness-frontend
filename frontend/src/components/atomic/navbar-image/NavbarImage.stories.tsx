@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { NavbarImage, NavbarImageProps } from './NavbarImage';
 
 export default {
-  title: 'Components/atomic/NavbarImage',
+  title: 'Components/Atomic/NavbarImage',
   component: NavbarImage,
 } as Meta;
 
