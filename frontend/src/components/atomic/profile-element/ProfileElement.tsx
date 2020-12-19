@@ -27,14 +27,6 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Entry = styled.span`
-  text-align: left;
-  font: normal normal bold 1.4vh/3vh Inter;
-  letter-spacing: 0vh;
-  color: #1b1b1b;
-  opacity: 1;
-`;
-
 const Box = styled.div`
   display: flex;
   justify-content: space-between;
