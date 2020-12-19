@@ -1,20 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1vh;
-  border-radius: 1vh;
-  opacity: 1;
-  width: 33.3vh;
-  height: 3.8vh;
-  background: #ce3131 0% 0% no-repeat padding-box;
-  color: white;
-  margin: 1vh;
-  border: none;
-  outline: none;
+  ${tw`bg-red-600 flex justify-center rounded-lg
+text-white m-2 w-1/12 h-1/6`};
+  font-family: Inter;
 `;
 
 export interface ButtonProps {

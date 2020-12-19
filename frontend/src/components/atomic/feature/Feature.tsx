@@ -1,16 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
+const Container = styled.div`
+  ${tw`flex justify-center w-full`};
+`;
 type ContentProps = {
   reverse: boolean;
 };
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-`;
 
 const Content = styled.div<ContentProps>`
   display: flex;
@@ -19,41 +17,25 @@ const Content = styled.div<ContentProps>`
   flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
   width: 80%;
 `;
-
 const TextContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 40%;
+  ${tw`flex justify-center flex-col w-5/12`};
 `;
 
 const Screenshot = styled.img`
+  ${tw`bg-red-300 rounded-lg my-4`};
   width: 80.4vh;
   height: 52.6vh;
-  background: #f89d9d 0% 0% no-repeat padding-box;
-  border-radius: 2vh;
-  opacity: 1;
-  margin: 2vh 0vh;
 `;
-
 const Title = styled.h1`
-  width: 40vh;
-  text-align: left;
-  font: normal normal bold 4vh/5.3vh Inter;
-  letter-spacing: 0vh;
-  color: #1b1b1b;
-  opacity: 1;
+  ${tw`text-left w-4/12 text-3xl font-bold`};
+  font-family: Inter;
 `;
 
 const Description = styled.p`
-  width: 40vh;
-  text-align: left;
-  font: normal normal normal 2vh/2.7vh Inter;
-  letter-spacing: 0vh;
-  color: #1b1b1b;
-  opacity: 1;
-  word-wrap: break-word;
+  ${tw`w-4/12 text-left text-xs mt-3`};
+  font-family: Inter;
 `;
+
 export interface FeatureProps {
   screenshotRoute: string;
   title: string;

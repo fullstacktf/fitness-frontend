@@ -1,15 +1,17 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
+
+const Container = styled.div`
+  ${tw`max-w-screen-xl`};
+`;
 
 const P = styled.p`
-  font: normal normal normal 2.4vh/4vh Inter;
-  color: #1b1b1b;
-  line-height: 4vh;
-  margin: 0;
+  ${tw`m-0 leading-5`};
+  font-family: Inter;
 `;
-const Container = styled.div`
-  max-width: 144vh;
-`;
+
 export interface DescriptionProps {
   text: string;
 }
