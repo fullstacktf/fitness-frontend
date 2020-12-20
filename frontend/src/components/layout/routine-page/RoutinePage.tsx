@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { Navbar } from '../navbar/Navbar';
 import { RoutinePanel } from '../routine-panel/RoutinePanel';
+import { getRoutines } from '../../../utils/utils';
 
 const Container = styled.div`
   display: flex;
@@ -12,10 +13,21 @@ const Container = styled.div`
 `;
 
 export const RoutinePage: React.FC = (): JSX.Element => {
+  const [routines, setRoutines] = React.useState([]);
+
+  React.useEffect(() => {
+    (async () => {
+      const response = await getRoutines();
+      if (response !== Error) {
+        setRoutines(response);
+      }
+    })();
+  }, []);
+
   return (
     <Container role="application">
       <Navbar />
-      <RoutinePanel />
+      <RoutinePanel routines={routines} />
     </Container>
   );
 };

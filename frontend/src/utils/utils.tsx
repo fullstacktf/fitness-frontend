@@ -44,7 +44,7 @@ export const getUserInformation = async (): Promise<any> => {
   const ID = await getUserID();
   return axios
     .get(CURRENT_URL + `/v1/user/${ID}`)
-    .then((user) => user.data)
+    .then((response) => response.data)
     .catch((error) => error);
 };
 
@@ -53,7 +53,7 @@ export const getUserRoutine = async (): Promise<any> => {
   const ID = await getUserID();
   return axios
     .get(CURRENT_URL + `/v1/assignedRoutine/1/byUser/${ID}`)
-    .then((res) => res.data[0])
+    .then((response) => response.data[0])
     .catch((error) => error);
 };
 
@@ -67,7 +67,7 @@ export const getUserRoutineExercises = async (): Promise<any> => {
 
   return axios
     .post(CURRENT_URL + '/v1/routineSpecificExercise/filter', filter)
-    .then((res) => res.data)
+    .then((response) => response.data)
     .catch((error) => error);
 };
 
@@ -76,6 +76,22 @@ export const getUserStats = async (): Promise<any> => {
   const ID = await getUserID();
   return axios
     .get(CURRENT_URL + `/v1/userStat/${ID}`)
-    .then((stats) => stats.data)
+    .then((response) => response.data)
+    .catch((error) => error);
+};
+
+export const getExercises = (): Promise<any> => {
+  axios.defaults.withCredentials = true;
+  return axios
+    .post(CURRENT_URL + '/v1/baseExercise/filter', {})
+    .then((response) => response.data)
+    .catch((error) => error);
+};
+
+export const getRoutines = (): Promise<any> => {
+  axios.defaults.withCredentials = true;
+  return axios
+    .post(CURRENT_URL + '/v1/baseRoutine/filter', {})
+    .then((response) => response.data)
     .catch((error) => error);
 };

@@ -6,6 +6,8 @@ import { Login } from './components/layout/login/Login';
 import { Register } from './components/layout/register/Register';
 import { Profile } from './components/layout/profile/Profile';
 import { UserCrud } from './components/layout/user-crud/UserCrud';
+import { ExercisePage } from './components/layout/exercise-page/ExercisePage';
+import { RoutinePage } from './components/layout/routine-page/RoutinePage';
 
 function App(): JSX.Element {
   return (
@@ -17,6 +19,8 @@ function App(): JSX.Element {
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/userCrud" component={UserCrud} />
+          <Route exact path="/exercises" component={ExercisePage} />
+          <Route exact path="/routines" component={RoutinePage} />
         </Switch>
       </Router>
     </div>

@@ -11,6 +11,7 @@ const Element = styled.li`
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  margin: 0vh 1vh;
 `;
 
 const Link = styled.a`
