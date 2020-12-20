@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { DynamicList } from '../dynamic-list/DynamicList';
 import axios from 'axios';
-import { DEVELOPMENT_URL } from '../../../utils/utils';
+import { CURRENT_URL } from '../../../utils/utils';
 
 const Container = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ export const UserCrud = (): JSX.Element => {
   const getUsers = (): Promise<any> => {
     axios.defaults.withCredentials = true;
     return axios
-      .post(DEVELOPMENT_URL + '/v1/user/all', {})
+      .post(CURRENT_URL + '/v1/user/all', {})
       .then((response) => response.data)
       .catch((error) => error);
   };
