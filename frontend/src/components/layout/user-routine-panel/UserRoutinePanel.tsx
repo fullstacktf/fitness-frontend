@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import defaultExercisePicture from './assets/defaultExercisePicture.svg';
 import { RoutineExercise } from '../../atomic/routine-exercise/RoutineExercise';
+import { HashLink } from 'react-router-hash-link';
 
 const Container = styled.div`
   display: flex;
@@ -43,16 +44,16 @@ const Content = styled.div`
   flex-direction: column;
   width: 64vh;
   height: 80%;
-`;
-
-const Name = styled.div`
-  text-align: left;
-  font: normal normal bold 6.2vh/3vh Inter;
-  letter-spacing: 0vh;
-  color: #ce3131;
-  opacity: 1;
-  width: 100%;
-  margin: 4vh 4vh;
+  a {
+    text-align: left;
+    font: normal normal bold 6.2vh/3vh Inter;
+    letter-spacing: 0vh;
+    color: #ce3131;
+    opacity: 1;
+    width: 100%;
+    margin: 4vh 4vh;
+    text-decoration: none;
+  }
 `;
 
 const Description = styled.div`
@@ -67,6 +68,7 @@ const Description = styled.div`
 `;
 
 export interface UserRoutinePanelProps {
+  id: string;
   imageRoute?: string;
   name: string;
   description: string;
@@ -88,6 +90,7 @@ export const UserRoutinePanel: React.FC<UserRoutinePanelProps> = (
           reps={exercise.Repetitions}
           series={exercise.Series}
           description={exercise.BaseExercise.Description}
+          id={exercise.ID}
         />
       );
     });
@@ -102,7 +105,9 @@ export const UserRoutinePanel: React.FC<UserRoutinePanelProps> = (
           alt={UserRoutinePanelProps.name + 'routine picture'}
         />
         <Content>
-          <Name>{UserRoutinePanelProps.name ?? 'No Routine Assigned'}</Name>
+          <HashLink to={'/routine/' + UserRoutinePanelProps.id}>
+            {UserRoutinePanelProps.name ?? 'No Routine Assigned'}
+          </HashLink>
           <Description>{UserRoutinePanelProps.description}</Description>
         </Content>
       </Panel>

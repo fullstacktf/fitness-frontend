@@ -88,6 +88,22 @@ export const getExercises = (): Promise<any> => {
     .catch((error) => error);
 };
 
+export const getExercise = (ID: string): Promise<any> => {
+  axios.defaults.withCredentials = true;
+  return axios
+    .get(CURRENT_URL + `/v1/baseExercise/${ID}`)
+    .then((response) => response.data)
+    .catch((error) => error);
+};
+
+export const getRoutine = (ID: string): Promise<any> => {
+  axios.defaults.withCredentials = true;
+  return axios
+    .get(CURRENT_URL + `/v1/baseRoutine/${ID}`)
+    .then((response) => response.data)
+    .catch((error) => error);
+};
+
 export const getRoutines = (): Promise<any> => {
   axios.defaults.withCredentials = true;
   return axios

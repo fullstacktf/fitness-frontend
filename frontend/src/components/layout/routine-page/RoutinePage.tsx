@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Navbar } from '../navbar/Navbar';
 import { RoutinePanel } from '../routine-panel/RoutinePanel';
 import { getRoutines } from '../../../utils/utils';
+import { Footer } from '../footer/Footer';
 
 const Container = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ export const RoutinePage: React.FC = (): JSX.Element => {
     <Container role="application">
       <Navbar />
       <RoutinePanel routines={routines} />
+      <Footer position={routines.length === 0 ? 'absolute' : 'relative'} />
     </Container>
   );
 };

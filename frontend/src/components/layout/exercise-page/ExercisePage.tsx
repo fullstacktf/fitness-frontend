@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Navbar } from '../navbar/Navbar';
 import { ExercisePanel } from '../exercise-panel/ExercisePanel';
 import { getExercises } from '../../../utils/utils';
+import { Footer } from '../footer/Footer';
 
 const Container = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ export const ExercisePage: React.FC = (): JSX.Element => {
     <Container role="application">
       <Navbar />
       <ExercisePanel exercises={exercises} />
+      <Footer position={exercises.length === 0 ? 'absolute' : 'relative'} />
     </Container>
   );
 };

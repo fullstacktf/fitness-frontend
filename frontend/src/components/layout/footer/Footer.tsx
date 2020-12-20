@@ -1,13 +1,17 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const Container = styled.div`
+const Container = styled.div<FooterProps>`
   display: flex;
   align-items: center;
   justify-content: flex-end;
   height: 2.5vh;
   background: #ce3131 0% 0% no-repeat padding-box;
   opacity: 1;
+
+  position: ${(props) => (props.position ? props.position : 'absolute')};
+  bottom: 0;
+  width: 100%;
 `;
 const Box = styled.div`
   display: flex;
@@ -28,9 +32,13 @@ const Link = styled.a`
   color: inherit;
 `;
 
-export const Footer: React.FC = (): JSX.Element => {
+export interface FooterProps {
+  position?: string;
+}
+
+export const Footer: React.FC<FooterProps> = (FooterProps): JSX.Element => {
   return (
-    <Container>
+    <Container position={FooterProps.position}>
       <Box>
         <p>&copy; {new Date().getFullYear()} YouLift</p>
         <div>
