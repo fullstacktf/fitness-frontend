@@ -47,6 +47,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 <img src="docs/img/Profile-Page.png" alt="Profile Page" width="800"/>
 
+### Contact
+
+<img src="docs/img/Contact.png" alt="Contact" width="800"/>
+
 ### Login
 
 <img src="docs/img/Login-Page.png" alt="Login Page" width="800"/>
