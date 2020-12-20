@@ -31,22 +31,39 @@ const ContainerItem = styled.div`
   align-items: center;
 `;
 
+interface RoutineInformation {
+  name: string;
+  category: string;
+  description: string;
+  exercises: any[];
+}
+
 export const RoutineItem: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [name, setName] = React.useState(String);
-  const [category, setCategory] = React.useState(String);
-  const [description, setDescription] = React.useState(String);
-  const [exercises, setExercises] = React.useState([]);
+
+  const emptyRoutineInformation: RoutineInformation = {
+    name: '',
+    category: '',
+    description: '',
+    exercises: [],
+  };
+
+  const [routineInformation, setRoutineInformation] = React.useState(
+    emptyRoutineInformation
+  );
 
   const fillRoutine = (ID: string) => {
     getRoutine(ID).then((response) => {
       if (response !== Error) {
-        setName(response.Name);
-        setDescription(response.Description);
-        setCategory(response.RoutineCategory.Name);
-        setExercises(response.BaseExercises);
+        const information: RoutineInformation = {
+          name: response.Name,
+          description: response.Description,
+          category: response.RoutineCategory.Name,
+          exercises: response.BaseExercises,
+        };
+        setRoutineInformation(information);
       } else {
-        console.log(response);
+        console.error(response);
       }
     });
   };
@@ -58,14 +75,21 @@ export const RoutineItem: React.FC = () => {
   return (
     <Container>
       <Navbar />
-      <ItemHeader itemName={name} category={category} />
+      <ItemHeader
+        itemName={routineInformation.name}
+        category={routineInformation.category}
+      />
       <Content>
         <ContainerItem>
-          <Description text={description} />
+          <Description text={routineInformation.description} />
         </ContainerItem>
-        <ExercisePanel exercises={exercises} />
+        <ExercisePanel exercises={routineInformation.exercises} />
       </Content>
-      <Footer position={exercises.length === 0 ? 'absolute' : 'relative'} />
+      <Footer
+        position={
+          routineInformation.exercises.length === 0 ? 'absolute' : 'relative'
+        }
+      />
     </Container>
   );
 };

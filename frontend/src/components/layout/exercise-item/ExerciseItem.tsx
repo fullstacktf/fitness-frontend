@@ -34,22 +34,41 @@ const Video = styled.iframe`
   height: 31.5vh;
 `;
 
+interface ExerciseInformation {
+  name: string;
+  category: string;
+  description: string;
+  url: string;
+  muscles: any[];
+}
+
 export const ExerciseItem: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [name, setName] = React.useState(String);
-  const [category, setCategory] = React.useState(String);
-  const [description, setDescription] = React.useState(String);
-  const [url, setUrl] = React.useState(String);
-  const [muscles, setMuscles] = React.useState([]);
+
+  const emptyExerciseInformation: ExerciseInformation = {
+    name: '',
+    description: '',
+    category: '',
+    url: '',
+    muscles: [],
+  };
+
+  const [
+    exerciseInformation,
+    setExerciseInformation,
+  ] = React.useState<ExerciseInformation>(emptyExerciseInformation);
 
   const fillExercise = (ID: string) => {
     getExercise(ID).then((response) => {
       if (response !== Error) {
-        setName(response.Name);
-        setDescription(response.Description);
-        setCategory(response.ExerciseCategory.Name);
-        setUrl(response.VideoURL.replace('watch?v=', 'embed/'));
-        setMuscles(response.Muscles);
+        const information: ExerciseInformation = {
+          name: response.Name,
+          description: response.Description,
+          category: response.ExerciseCategory.Name,
+          url: response.VideoURL.replace('watch?v=', 'embed/'),
+          muscles: response.Muscles,
+        };
+        setExerciseInformation(information);
       } else {
         console.log(response);
       }
@@ -63,13 +82,16 @@ export const ExerciseItem: React.FC = () => {
   return (
     <Container>
       <Navbar />
-      <ItemHeader itemName={name} category={category} />
+      <ItemHeader
+        itemName={exerciseInformation.name}
+        category={exerciseInformation.category}
+      />
       <ContainerItem>
-        <Description text={description} />
+        <Description text={exerciseInformation.description} />
       </ContainerItem>
       <ContainerVideo>
-        <MusclePanel muscles={muscles} />
-        <Video src={url}> </Video>
+        <MusclePanel muscles={exerciseInformation.muscles} />
+        <Video src={exerciseInformation.url}> </Video>
       </ContainerVideo>
       <Footer />
     </Container>
