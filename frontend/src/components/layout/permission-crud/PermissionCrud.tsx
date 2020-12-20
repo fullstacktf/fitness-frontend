@@ -38,7 +38,7 @@ export const PermissionCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={permission} />
+        <DynamicList objs={permission} idObject="id" link="/" />
       </ListContainer>
     </Container>
   );

@@ -1,13 +1,16 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { HashLink } from 'react-router-hash-link';
 
 export interface DynamicListProps {
   objs: unknown[];
+  idObject: string;
+  link: string;
 }
 
 const Container = styled.div`
   margin-top: 10vh;
-  font: normal normal bold 3.5vh/4vh Inter;
+  font: normal normal bold 2.5vh/4vh Inter;
   color: #ffffff;
   box-shadow: 0vh 0vh 1.2vh #00000029;
   padding: 2vh;
@@ -37,8 +40,11 @@ const ListRow = styled.tr`
 `;
 
 const ListItem = styled.td`
-  color: #ffffff;
   padding: 2vh;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
 `;
 
 function checkPropertyName(property: ObjectPropertyDef) {
@@ -67,7 +73,7 @@ class ObjectPropertyDef {
   }
 }
 
-function getListContent(objs: any[]): JSX.Element {
+function getListContent(objs: any[]): ObjectPropertyDef[] {
   const properties: ObjectPropertyDef[] = [];
 
   const objectProps = Object.getOwnPropertyNames(objs[0]);
@@ -83,36 +89,60 @@ function getListContent(objs: any[]): JSX.Element {
     }
   }
 
-  return (
-    <ListContainer>
-      <ListHeader>
-        {properties.map((value, index) => {
-          const result: JSX.Element[] = [];
-          result.push(
-            <ListHeaderItem key={index}>
-              {objectProps[value.index]}
-            </ListHeaderItem>
-          );
-          return result;
-        })}
-      </ListHeader>
-      {objs.map((value, index) => {
-        const result: JSX.Element[] = [];
-        for (let i = 0; i < properties.length; i++) {
-          result.push(
-            <ListItem key={index}>
-              {String(Object.values(value)[properties[i].index])}
-            </ListItem>
-          );
-        }
-        return <ListRow key={index}>{result}</ListRow>;
-      })}
-    </ListContainer>
-  );
+  return properties;
 }
 
 export const DynamicList: React.FC<DynamicListProps> = ({
   objs,
+  idObject,
+  link,
 }: DynamicListProps): JSX.Element => {
-  return <Container>{getListContent(objs)}</Container>;
+  const properties: ObjectPropertyDef[] = getListContent(objs);
+  return (
+    <Container>
+      <ListContainer>
+        <ListHeader>
+          {properties.map((value, index) => {
+            const result: JSX.Element[] = [];
+            result.push(
+              <ListHeaderItem key={index}>{value.name}</ListHeaderItem>
+            );
+            return result;
+          })}
+        </ListHeader>
+        {objs.map((value: any, index) => {
+          const result: JSX.Element[] = [];
+          for (let i = 0; i < properties.length; i++) {
+            result.push(
+              <ListItem key={index}>
+                {link ? (
+                  <HashLink
+                    key={index}
+                    to={
+                      link +
+                      '?' +
+                      idObject.toLowerCase() +
+                      '=' +
+                      value[String(idObject)]
+                    }
+                  >
+                    {String(Object.values(value)[properties[i].index])
+                      ? String(Object.values(value)[properties[i].index])
+                      : '-'}
+                  </HashLink>
+                ) : (
+                  <div>
+                    {String(Object.values(value)[properties[i].index])
+                      ? String(Object.values(value)[properties[i].index])
+                      : '-'}
+                  </div>
+                )}
+              </ListItem>
+            );
+          }
+          return <ListRow key={index}>{result}</ListRow>;
+        })}
+      </ListContainer>
+    </Container>
+  );
 };

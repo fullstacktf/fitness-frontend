@@ -38,7 +38,7 @@ export const RoleCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={role} />
+        <DynamicList objs={role} idObject="id" link="/" />
       </ListContainer>
     </Container>
   );

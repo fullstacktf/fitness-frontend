@@ -38,7 +38,7 @@ export const RoutineCategoryCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={routineCategories} />
+        <DynamicList objs={routineCategories} idObject="id" link="/" />
       </ListContainer>
     </Container>
   );

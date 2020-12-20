@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { DynamicList } from '../dynamic-list/DynamicList';
-import axios from 'axios';
 import { DEVELOPMENT_URL } from '../../../utils/utils';
+import axios from 'axios';
 import { Navbar } from '../navbar/Navbar';
+import { useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -12,26 +12,26 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const ListContainer = styled.div`
-  padding: 2vh;
-`;
+export const UserCrudPanel = (): JSX.Element => {
+  const [user, setUser] = React.useState([{}]);
 
-export const UserCrud = (): JSX.Element => {
-  const [users, setUsers] = React.useState([{}]);
-  const getUsers = (): Promise<any> => {
+  const searchParams: any = new URLSearchParams(useLocation().search);
+
+  const getUser = (): Promise<any> => {
     axios.defaults.withCredentials = true;
     return axios
-      .post(DEVELOPMENT_URL + '/v1/user/filter', {})
+      .get(DEVELOPMENT_URL + '/v1/user/' + searchParams.get('id'), {})
       .then((response) => response.data)
       .catch((error) => error);
   };
 
   React.useEffect(() => {
-    getUsers().then((data) => {
+    getUser().then((data) => {
       if (data === Error) {
         console.log(data);
       } else {
-        setUsers(data);
+        console.log(data);
+        setUser(data);
       }
     });
   }, []);
@@ -39,9 +39,15 @@ export const UserCrud = (): JSX.Element => {
   return (
     <Container>
       <Navbar />
-      <ListContainer>
-        <DynamicList objs={users} idObject="ID" link="/userCrudPanel" />
-      </ListContainer>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      {Object.values(user)[4]}
     </Container>
   );
 };

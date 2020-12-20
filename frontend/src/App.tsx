@@ -12,6 +12,7 @@ import { RoutineCategoryCrud } from './components/layout/routine-category-crud/R
 import { PermissionCrud } from './components/layout/permission-crud/PermissionCrud';
 import { MuscleCrud } from './components/layout/muscle-crud/MuscleCrud';
 import { RoleCrud } from './components/layout/role-crud/RoleCrud';
+import { UserCrudPanel } from './components/layout/user-crud-panel/UserCrudPanel';
 
 function App(): JSX.Element {
   return (
@@ -37,6 +38,7 @@ function App(): JSX.Element {
           />
           <Route exact path="/permissionCrud" component={PermissionCrud} />
           <Route exact path="/roleCrud" component={RoleCrud} />
+          <Route exact path="/userCrudPanel" component={UserCrudPanel} />
         </Switch>
       </Router>
     </div>

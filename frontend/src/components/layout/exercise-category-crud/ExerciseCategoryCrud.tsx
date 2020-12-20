@@ -38,7 +38,7 @@ export const ExerciseCategoryCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={execiseCategories} />
+        <DynamicList objs={execiseCategories} idObject="id" link="/" />
       </ListContainer>
     </Container>
   );

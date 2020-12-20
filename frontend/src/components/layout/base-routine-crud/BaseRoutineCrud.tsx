@@ -38,7 +38,7 @@ export const BaseRoutineCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={baseRoutines} />
+        <DynamicList objs={baseRoutines} idObject="id" link="/" />
       </ListContainer>
     </Container>
   );

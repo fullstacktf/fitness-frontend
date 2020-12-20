@@ -38,7 +38,7 @@ export const MuscleCrud = (): JSX.Element => {
     <Container>
       <Navbar />
       <ListContainer>
-        <DynamicList objs={muscle} />
+        <DynamicList objs={muscle} idObject="id" link="/" />
       </ListContainer>
     </Container>
   );
