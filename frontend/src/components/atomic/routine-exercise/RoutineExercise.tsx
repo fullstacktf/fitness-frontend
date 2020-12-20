@@ -33,14 +33,6 @@ const Container = styled.div`
   }
 `;
 
-const Entry = styled.span`
-  text-align: left;
-  font: normal normal bold 1.4vh/3vh Inter;
-  letter-spacing: 0vh;
-  color: #ffffff;
-  opacity: 1;
-`;
-
 const Box = styled.div`
   display: flex;
   justify-content: space-between;
@@ -119,7 +111,6 @@ export const RoutineExercise: React.FC<RoutineExerciseProps> = (
         </Box>
         <Box>
           <Content>
-            <Entry>Description:</Entry>
             <Commentary>{RoutineExerciseProps.description}</Commentary>
           </Content>
         </Box>

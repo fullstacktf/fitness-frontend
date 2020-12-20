@@ -34,10 +34,10 @@ const Content = styled.div`
 const P = styled.p`
   word-wrap: wrap;
   text-align: left;
-  font: normal normal bold 3.2vh/4vh Inter;
+  font: normal normal bold 2.2vh/3vh Inter;
   letter-spacing: 0px;
   opacity: 1;
-  line-height: 1vh;
+  line-height: 3vh;
 `;
 
 const Span = styled.span`
