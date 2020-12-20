@@ -8,15 +8,13 @@ const P = styled.p`
   margin: 0;
 `;
 const Container = styled.div`
-  max-width: 144vh;
+  width: 100%;
 `;
 export interface DescriptionProps {
   text: string;
 }
 
-export const Description: React.FC<DescriptionProps> = (
-  DescriptionProps
-): JSX.Element => {
+export const Description: React.FC<DescriptionProps> = (DescriptionProps) => {
   return (
     <Container>
       <P>{DescriptionProps.text}</P>

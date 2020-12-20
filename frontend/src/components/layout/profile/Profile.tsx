@@ -49,12 +49,6 @@ const Content = styled.div`
   width: 90%;
 `;
 
-const FooterContainer = styled.div`
-  position: relative;
-  bottom: 0;
-  width: 99vw;
-`;
-
 export const Profile: React.FC = () => {
   const [userName, setUserName] = React.useState(String);
   const [userHeight, setUserHeight] = React.useState(String);
@@ -62,6 +56,7 @@ export const Profile: React.FC = () => {
   const [userBiography, setUserBiography] = React.useState(String);
 
   const [routineName, setRoutineName] = React.useState(String);
+  const [routineID, setRoutineID] = React.useState(String);
   const [routineDescription, setRoutineDescription] = React.useState(String);
   const [routineExercises, setRoutineExercises] = React.useState([{}]);
 
@@ -83,6 +78,7 @@ export const Profile: React.FC = () => {
   const fillRoutineInformation = () => {
     getUserRoutine().then((routine) => {
       if (routine !== Error) {
+        setRoutineID(routine.ID);
         setRoutineName(routine.Name);
         setRoutineDescription(routine.Description);
       }
@@ -115,6 +111,7 @@ export const Profile: React.FC = () => {
           </Box>
           <Box>
             <UserRoutinePanel
+              id={routineID}
               imageRoute={defaultExercisePicture}
               name={routineName}
               description={routineDescription}
@@ -123,9 +120,9 @@ export const Profile: React.FC = () => {
           </Box>
         </Box>
       </Content>
-      <FooterContainer>
-        <Footer />
-      </FooterContainer>
+      <Footer
+        position={routineExercises.length === 0 ? 'absolute' : 'relative'}
+      />
     </Container>
   );
 };

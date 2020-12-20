@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import {
-  DEVELOPMENT_URL,
+  CURRENT_URL,
   getUserInformation,
   getUserStats,
 } from '../../../utils/utils';
@@ -161,7 +161,7 @@ export const ProfileElement: React.FC<ProfileElementProps> = (
       user.Name = name;
       user.Biography = biography;
       axios
-        .put(DEVELOPMENT_URL + `/v1/user/${user.ID}`, user)
+        .put(CURRENT_URL + `/v1/user/${user.ID}`, user)
         .then(() => setIsSaving(false))
         .catch((error) => {
           setIsSaving(false);
@@ -173,7 +173,7 @@ export const ProfileElement: React.FC<ProfileElementProps> = (
       stats.Height = Number(height);
       stats.LastWeight = Number(weight);
       axios
-        .put(DEVELOPMENT_URL + `/v1/userStat/${stats.UserID}`, stats)
+        .put(CURRENT_URL + `/v1/userStat/${stats.UserID}`, stats)
         .then(() => setIsSaving(false))
         .catch((error) => {
           setIsSaving(false);

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { HashLink } from 'react-router-hash-link';
 
 export interface RoutineExerciseProps {
+  id: string;
   imageRoute: string;
   name: string;
   reps: string;
@@ -9,14 +11,26 @@ export interface RoutineExerciseProps {
   description?: string;
 }
 const Container = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   background: #ce3131 0% 0% no-repeat padding-box;
   box-shadow: 0vh 0vh 1.2vh #00000029;
   opacity: 1;
   width: 100%;
   height: 100%;
+  text-decoration: none;
+  color: #1b1b1b;
+  margin: 0.1vh;
+  a {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #ce3131 0% 0% no-repeat padding-box;
+    box-shadow: 0vh 0vh 1.2vh #00000029;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #1b1b1b;
+  }
 `;
 
 const Entry = styled.span`
@@ -89,25 +103,27 @@ export const RoutineExercise: React.FC<RoutineExerciseProps> = (
 ) => {
   return (
     <Container>
-      <Box>
-        <ExercisePicture
-          src={RoutineExerciseProps.imageRoute}
-          alt={RoutineExerciseProps.name + 'exercise picture'}
-        />
-        <Content>
-          <Name>{RoutineExerciseProps.name}</Name>
-          <Datas>
-            <Data>Series: {RoutineExerciseProps.series}</Data>
-            <Data>Reps: {RoutineExerciseProps.reps}</Data>
-          </Datas>
-        </Content>
-      </Box>
-      <Box>
-        <Content>
-          <Entry>Description:</Entry>
-          <Commentary>{RoutineExerciseProps.description}</Commentary>
-        </Content>
-      </Box>
+      <HashLink to={'/exercise/' + RoutineExerciseProps.id}>
+        <Box>
+          <ExercisePicture
+            src={RoutineExerciseProps.imageRoute}
+            alt={RoutineExerciseProps.name + 'exercise picture'}
+          />
+          <Content>
+            <Name>{RoutineExerciseProps.name}</Name>
+            <Datas>
+              <Data>Series: {RoutineExerciseProps.series}</Data>
+              <Data>Reps: {RoutineExerciseProps.reps}</Data>
+            </Datas>
+          </Content>
+        </Box>
+        <Box>
+          <Content>
+            <Entry>Description:</Entry>
+            <Commentary>{RoutineExerciseProps.description}</Commentary>
+          </Content>
+        </Box>
+      </HashLink>
     </Container>
   );
 };
