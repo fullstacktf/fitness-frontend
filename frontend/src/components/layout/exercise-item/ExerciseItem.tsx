@@ -20,6 +20,10 @@ const Video = styled.iframe`
 `;
 
 export const ExerciseItem: React.FC = () => {
+  const url =
+    'https://www.youtube.com/watch?v=xTeX1YEiAdE&ab_channel=KristinaRybalchenko';
+  url.replace('watch?v=', 'v/');
+
   return (
     <div>
       <ItemHeader
@@ -30,9 +34,7 @@ export const ExerciseItem: React.FC = () => {
         <Description text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et." />
       </ContainerItem>
       <Container>
-        <Video src="https://www.youtube.com/watch?v=xTeX1YEiAdE&ab_channel=KristinaRybalchenko">
-          {' '}
-        </Video>
+        <Video src={url}> </Video>
       </Container>
     </div>
   );
