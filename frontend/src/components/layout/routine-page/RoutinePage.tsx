@@ -29,7 +29,7 @@ export const RoutinePage: React.FC = (): JSX.Element => {
     <Container role="application">
       <Navbar />
       <RoutinePanel routines={routines} />
-      <Footer position={routines.length === 0 ? 'absolute' : 'relative'} />
+      <Footer position={routines.length === 0 ? 'absolute' : 'fixed'} />
     </Container>
   );
 };
