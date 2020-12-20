@@ -31,7 +31,6 @@ const LINK = styled.a`
 `;
 
 export interface TextFieldProps {
-  //extends Partial<Pick<UseFormMethods, 'register' | 'errors'>> {
   text: string;
   type: 'text' | 'email' | 'password' | 'date' | 'datetime-local';
   linkText?: string;

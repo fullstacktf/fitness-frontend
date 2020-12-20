@@ -5,7 +5,7 @@ import { TextField } from '../../atomic/text-field/TextField';
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import styled from '@emotion/styled';
-import { DEVELOPMENT_URL } from '../../../utils/utils';
+import { CURRENT_URL } from '../../../utils/utils';
 import { Spinner } from '../../atomic/spinner/Spinner';
 
 const Form = styled.form`
@@ -92,7 +92,7 @@ export const LoginForm = (): JSX.Element => {
 
     axios.defaults.withCredentials = true;
     axios
-      .post(DEVELOPMENT_URL + '/login', formData)
+      .post(CURRENT_URL + '/login', formData)
       .then(() => {
         setIsLogging(false);
         history.push('/');
