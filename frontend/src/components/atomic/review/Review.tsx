@@ -4,15 +4,11 @@ import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
 const Container = styled.div`
-  max-width: 60vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  // align-items: center;
+  ${tw`flex flex-row justify-start items-center w-10/12`};
 `;
 
 const Content = styled.div`
-  padding: 2vh;
+  ${tw`w-7/12 p-7 -mr-36`};
 `;
 
 const H1 = styled.h1`
@@ -36,11 +32,14 @@ const H3 = styled.h3`
 `;
 
 const Image = styled.img`
-  border-radius: 50%;
-  height: 10vh;
-  width: 20vh;
-  margin-top: 2vh;
+  ${tw`object-scale-down w-5/12 rounded-full`};
 `;
+// const Image = styled.img`
+//   border-radius: 50%;
+//   height: 10vh;
+//   width: 20vh;
+//   margin-top: 2vh;
+// `;
 
 export interface ReviewProps {
   picture: string;

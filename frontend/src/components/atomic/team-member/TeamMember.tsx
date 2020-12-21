@@ -4,16 +4,16 @@ import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
 const Container = styled.div`
-  ${tw`flex justify-center items-center flex-col w-44 h-48`};
+  ${tw`flex justify-center items-center flex-col w-44 h-48 m-4`};
 `;
 
 const Image = styled.img`
-  ${tw`w-3/6 rounded-full`};
+  ${tw`w-3/6 rounded-full my-4`};
   height: 45%;
 `;
 
 const Name = styled.h1`
-  ${tw`flex flex-grow text-center`};
+  ${tw`flex flex-grow text-center mb-4`};
   font: normal normal bold 2.4vh/3.2vh Inter;
 `;
 

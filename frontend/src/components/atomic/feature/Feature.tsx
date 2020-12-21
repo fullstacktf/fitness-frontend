@@ -4,39 +4,35 @@ import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
 const Container = styled.div`
-  ${tw`flex justify-center w-full`};
+  ${tw`flex justify-center w-full my-8`};
 `;
 
 type ContentProps = {
   reverse: boolean;
 };
-
 const Content = styled.div<ContentProps>`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  ${tw`flex justify-between items-start w-4/5`};
   flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
-  width: 80%;
 `;
 
 const TextContainer = styled.div`
-  ${tw`flex justify-center flex-col w-5/12`};
+  ${tw`flex justify-center flex-col w-8/12 ml-16`};
 `;
 
 const Screenshot = styled.img`
   ${tw`bg-red-300 rounded-lg my-4`};
-  width: 80.4vh;
-  height: 52.6vh;
+  width: 83.3vh;
+  height: 48vh;
 `;
 
 const Title = styled.h1`
-  ${tw`text-left w-4/12 text-3xl font-bold`};
+  ${tw`text-left w-5/12 text-3xl font-bold`};
   font-family: Inter;
 `;
 
 const Description = styled.p`
-  ${tw`w-4/12 text-left text-xs mt-3`};
-  font-family: Inter;
+  ${tw`w-6/12 text-left mt-3`};
+  font: normal normal normal 2vh/2.7vh Inter;
 `;
 
 export interface FeatureProps {
