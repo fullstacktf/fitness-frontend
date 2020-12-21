@@ -64,7 +64,11 @@ const Description = styled.div`
   color: #1b1b1b;
   opacity: 1;
   width: 100%;
+  overflow-y: scroll;
   margin: 0vh 4vh;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export interface UserRoutinePanelProps {
