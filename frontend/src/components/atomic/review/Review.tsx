@@ -38,7 +38,7 @@ const H3 = styled.h3`
 const Image = styled.img`
   border-radius: 50%;
   height: 10vh;
-  width: 10vh;
+  width: 20vh;
   margin-top: 2vh;
 `;
 

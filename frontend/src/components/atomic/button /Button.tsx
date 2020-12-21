@@ -4,9 +4,10 @@ import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
 const Container = styled.button`
-  ${tw`bg-red-600 flex justify-center rounded-lg
-text-white m-2 w-1/12 h-1/6`};
+  ${tw`flex justify-center items-center p-4 rounded-lg
+text-white m-2 w-10/12 h-9`};
   font-family: Inter;
+  background: #ce3131 0% 0% no-repeat padding-box;
 `;
 
 export interface ButtonProps {

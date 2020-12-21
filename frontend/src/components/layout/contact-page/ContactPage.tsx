@@ -5,13 +5,11 @@ import { Footer } from '../footer/Footer';
 import LinkedInLogo from './assets/linkedin-logo.png';
 import TwitterLogo from './assets/twitter-logo.png';
 import YouTubeLogo from './assets/youtube-logo.png';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+  ${tw`flex justify-center items-center flex-col w-full`};
   background-color: #ececec;
   height: 100vh;
 `;
@@ -28,28 +26,29 @@ const H1 = styled.h1`
   font: normal normal bold 10vh/4vh Inter;
   letter-spacing: 0px;
   color: #1b1b1b;
+  margin-bottom: 10vh;
 `;
 
 const H2 = styled.h2`
   font: normal normal normal 4.8vh/4vh Inter;
   letter-spacing: 0px;
   color: #1b1b1b;
+  margin-bottom: 2vh;
 `;
 
 const H3 = styled.h3`
   font: normal normal 300 3.6vh/4vh Inter;
   letter-spacing: 0px;
   color: #aaaaaa;
+  margin-bottom: 2vh;
 `;
 
 const Logos = styled.div`
-  display: flex;
-  justify-content: center;
+  ${tw`flex justify-center`};
 `;
 
 const Logo = styled.img`
-  padding: 0 2vh;
-  height: 4vh;
+  ${tw`px-8 h-10`};
 `;
 
 export const ContactPage: React.FC = (): JSX.Element => {

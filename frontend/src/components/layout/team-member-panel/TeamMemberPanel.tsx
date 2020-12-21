@@ -13,16 +13,18 @@ const Container = styled.div`
 `;
 
 const Members = styled.div`
-  ${tw`flex justify-center`};
+  ${tw`flex justify-center m-1`};
 `;
 
 const H1 = styled.h1`
   font: normal normal bold 2.8vh/3vh Inter;
+  margin: 1vh;
 `;
 
 const H2 = styled.h2`
   height: 5vh;
   font: normal normal normal 2vh/3vh Inter;
+  margin: 1vh;
 `;
 
 export const TeamMemberPanel: React.FC = () => {

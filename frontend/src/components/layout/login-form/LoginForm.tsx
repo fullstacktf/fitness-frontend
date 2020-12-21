@@ -12,7 +12,7 @@ import tw from 'twin.macro';
 
 const Form = styled.form`
   ${tw`flex justify-center items-center flex-col border border-gray-300
- rounded-sm w-72`};
+ rounded-sm w-96`};
   background: #ffffff 0% 0% no-repeat padding-box;
 `;
 
