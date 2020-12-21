@@ -3,9 +3,12 @@ import styled from '@emotion/styled';
 import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
-const Container = styled.div`
+const Container = styled.div<FooterProps>`
   ${tw`flex items-center justify-end h-6`};
   background: #ce3131 0% 0% no-repeat padding-box;
+  position: ${(props) => (props.position ? props.position : 'absolute')};
+  bottom: 0;
+  width: 100%;
 `;
 
 const Box = styled.div`
@@ -19,9 +22,13 @@ const Link = styled.a`
   ${tw`no-underline `};
 `;
 
-export const Footer: React.FC = (): JSX.Element => {
+export interface FooterProps {
+  position?: string;
+}
+
+export const Footer: React.FC<FooterProps> = (FooterProps): JSX.Element => {
   return (
-    <Container>
+    <Container position={FooterProps.position}>
       <Box>
         <p>&copy; {new Date().getFullYear()} YouLift</p>
         <div>

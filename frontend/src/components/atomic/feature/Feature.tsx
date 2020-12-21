@@ -6,6 +6,7 @@ import tw from 'twin.macro';
 const Container = styled.div`
   ${tw`flex justify-center w-full`};
 `;
+
 type ContentProps = {
   reverse: boolean;
 };
@@ -17,6 +18,7 @@ const Content = styled.div<ContentProps>`
   flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
   width: 80%;
 `;
+
 const TextContainer = styled.div`
   ${tw`flex justify-center flex-col w-5/12`};
 `;
@@ -26,6 +28,7 @@ const Screenshot = styled.img`
   width: 80.4vh;
   height: 52.6vh;
 `;
+
 const Title = styled.h1`
   ${tw`text-left w-4/12 text-3xl font-bold`};
   font-family: Inter;

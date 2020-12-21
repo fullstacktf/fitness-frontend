@@ -16,9 +16,7 @@ export interface DescriptionProps {
   text: string;
 }
 
-export const Description: React.FC<DescriptionProps> = (
-  DescriptionProps
-): JSX.Element => {
+export const Description: React.FC<DescriptionProps> = (DescriptionProps) => {
   return (
     <Container>
       <P>{DescriptionProps.text}</P>

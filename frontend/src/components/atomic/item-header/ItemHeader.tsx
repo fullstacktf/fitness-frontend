@@ -8,20 +8,16 @@ const Container = styled.div`
   padding: 8.2vh 0 1vh 24vh;
 `;
 
-const A = styled.a`
-  ${tw`no-underline m-0 `};
-  font: normal normal normal 2.4vh/2.9vh Inter;
-  color: #9dbbf8;
-`;
-
 const H1 = styled.h1`
   ${tw`mt-2 mb-0`};
-  font: normal normal bold 7.2vh/8.7vh Inter;
+  font: normal normal bold 6.2vh/7.7vh Inter;
   color: #ececec;
+  width: 87.8%;
+  padding: 8.2vh 0 1vh 24vh;
 `;
 
 const H2 = styled.h2`
-  font: normal normal bold 4.8vh/5.9vh Inter;
+  font: normal normal bold 2.8vh/3.9vh Inter;
   color: #ececec;
   margin: 0;
 `;
@@ -31,12 +27,9 @@ export interface ItemHeaderProps {
   category: string;
 }
 
-export const ItemHeader: React.FC<ItemHeaderProps> = (
-  ItemHeaderProps
-): JSX.Element => {
+export const ItemHeader: React.FC<ItemHeaderProps> = (ItemHeaderProps) => {
   return (
     <Container>
-      <A href="##">Back</A>
       <H1>{ItemHeaderProps.itemName}</H1>
       <H2>{ItemHeaderProps.category}</H2>
     </Container>

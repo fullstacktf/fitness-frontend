@@ -53,7 +53,7 @@ export const Hero: React.FC = (): JSX.Element => {
           have! You do the hard work, we track your results and tell you how
           amazing you are.
         </Paragraph>
-        <Button href="##">
+        <Button href="/register">
           <span>Register</span>
         </Button>
       </div>

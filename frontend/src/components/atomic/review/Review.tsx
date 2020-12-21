@@ -4,7 +4,15 @@ import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
 const Container = styled.div`
-  max-width: 46vh;
+  max-width: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // align-items: center;
+`;
+
+const Content = styled.div`
+  padding: 2vh;
 `;
 
 const H1 = styled.h1`
@@ -27,6 +35,13 @@ const H3 = styled.h3`
   word-wrap: wrap;
 `;
 
+const Image = styled.img`
+  border-radius: 50%;
+  height: 10vh;
+  width: 10vh;
+  margin-top: 2vh;
+`;
+
 export interface ReviewProps {
   picture: string;
   text: string;
@@ -37,10 +52,14 @@ export interface ReviewProps {
 export const Review: React.FC<ReviewProps> = (ReviewProps): JSX.Element => {
   return (
     <Container>
-      <img src={ReviewProps.picture} alt="" />
-      <H1>{ReviewProps.text}</H1>
-      <H2>{ReviewProps.author}</H2>
-      <H3>{ReviewProps.role}</H3>
+      <Content>
+        <Image src={ReviewProps.picture} alt="" />
+      </Content>
+      <Content>
+        <H1>{ReviewProps.text}</H1>
+        <H2>{ReviewProps.author}</H2>
+        <H3>{ReviewProps.role}</H3>
+      </Content>
     </Container>
   );
 };

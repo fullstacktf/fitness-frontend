@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { DEVELOPMENT_URL } from '../../../utils/utils';
+import { CURRENT_URL } from '../../../utils/utils';
 import { Spinner } from '../../atomic/spinner/Spinner';
 import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
@@ -72,7 +72,7 @@ export const RegisterForm = (): JSX.Element => {
 
     axios.defaults.withCredentials = true;
     axios
-      .post(DEVELOPMENT_URL + '/register', JSON.stringify(data))
+      .post(CURRENT_URL + '/register', JSON.stringify(data))
       .then(() => {
         setIsRegistering(false);
         history.push('/login');

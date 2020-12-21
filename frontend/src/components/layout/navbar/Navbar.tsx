@@ -12,11 +12,13 @@ const Container = styled.div`
   ${tw`h-12 flex justify-around items-center w-full bg-white fixed top-0 `};
   box-shadow: 0vh 0vh 1.2vh #00000029;
 `;
+
 const Elements = styled.ul`
-  ${tw`flex justify-around items-center`};
-  width: 50vh;
+  ${tw`flex justify-evenly items-center`};
+  width: 30%;
   font-size: 1.5vh;
 `;
+
 const Logo = styled.img`
   height: 15vh;
 `;
@@ -41,6 +43,14 @@ export const Navbar: React.FC = (): JSX.Element => {
     <NavbarElement text="Logout" link="" onClick={logout} color="#1b1b1b" />
   );
 
+  const exercisesButton: JSX.Element = (
+    <NavbarElement text="Exercises" link="/exercises" color="#1b1b1b" />
+  );
+
+  const routinesButton: JSX.Element = (
+    <NavbarElement text="Routines" link="/routines" color="#1b1b1b" />
+  );
+
   React.useEffect(() => {
     if (isLogged()) {
       setIsLogin(true);
@@ -57,6 +67,8 @@ export const Navbar: React.FC = (): JSX.Element => {
         <NavbarElement text="Home" link="/" />
         <NavbarElement text="Why" link="/#why" />
         <NavbarElement text="Who" link="/#who" />
+        {isLogin ? exercisesButton : ''}
+        {isLogin ? routinesButton : ''}
         <NavbarElement text="Contact" link="/contact" />
         <NavbarImage
           link="https://github.com/fullstacktf/fitness-frontend"

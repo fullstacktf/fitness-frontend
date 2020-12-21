@@ -21,7 +21,7 @@ export const Landing: React.FC = (): JSX.Element => {
       <ReviewPanel />
       <FeaturePanel />
       <TeamMemberPanel />
-      <Footer />
+      <Footer position="relative" />
     </Container>
   );
 };

@@ -8,9 +8,11 @@ export interface NavbarImageProps {
   link: string;
   alt?: string;
 }
+
 const Element = styled.li`
   ${tw`flex justify-center items-center`};
 `;
+
 const Link = styled.a`
   ${tw`no-underline`};
 `;
