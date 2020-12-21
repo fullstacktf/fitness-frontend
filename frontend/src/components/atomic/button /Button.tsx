@@ -15,6 +15,7 @@ const Container = styled.button`
   margin: 1vh;
   border: none;
   outline: none;
+  cursor: pointer;
 `;
 
 export interface ButtonProps {

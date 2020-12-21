@@ -9,7 +9,7 @@ export interface DynamicListProps {
 }
 
 const Container = styled.div`
-  margin-top: 10vh;
+  margin-top: 2vh;
   font: normal normal bold 2.5vh/4vh Inter;
   color: #ffffff;
   box-shadow: 0vh 0vh 1.2vh #00000029;
@@ -101,47 +101,48 @@ export const DynamicList: React.FC<DynamicListProps> = ({
   return (
     <Container>
       <ListContainer>
-        <ListHeader>
-          {properties.map((value, index) => {
+        <tbody>
+          <ListHeader>
+            {properties.map((value, index) => {
+              const result: JSX.Element[] = [];
+              result.push(
+                <ListHeaderItem key={index}>{value.name}</ListHeaderItem>
+              );
+              return result;
+            })}
+          </ListHeader>
+          {objs.map((value: any, index) => {
             const result: JSX.Element[] = [];
-            result.push(
-              <ListHeaderItem key={index}>{value.name}</ListHeaderItem>
-            );
-            return result;
+            for (let i = 0; i < properties.length; i++) {
+              result.push(
+                <ListItem key={i}>
+                  {link ? (
+                    <HashLink
+                      to={
+                        link +
+                        '?' +
+                        idObject.toLowerCase() +
+                        '=' +
+                        value[String(idObject)]
+                      }
+                    >
+                      {String(Object.values(value)[properties[i].index])
+                        ? String(Object.values(value)[properties[i].index])
+                        : '-'}
+                    </HashLink>
+                  ) : (
+                    <div>
+                      {String(Object.values(value)[properties[i].index])
+                        ? String(Object.values(value)[properties[i].index])
+                        : '-'}
+                    </div>
+                  )}
+                </ListItem>
+              );
+            }
+            return <ListRow key={index}>{result}</ListRow>;
           })}
-        </ListHeader>
-        {objs.map((value: any, index) => {
-          const result: JSX.Element[] = [];
-          for (let i = 0; i < properties.length; i++) {
-            result.push(
-              <ListItem key={index}>
-                {link ? (
-                  <HashLink
-                    key={index}
-                    to={
-                      link +
-                      '?' +
-                      idObject.toLowerCase() +
-                      '=' +
-                      value[String(idObject)]
-                    }
-                  >
-                    {String(Object.values(value)[properties[i].index])
-                      ? String(Object.values(value)[properties[i].index])
-                      : '-'}
-                  </HashLink>
-                ) : (
-                  <div>
-                    {String(Object.values(value)[properties[i].index])
-                      ? String(Object.values(value)[properties[i].index])
-                      : '-'}
-                  </div>
-                )}
-              </ListItem>
-            );
-          }
-          return <ListRow key={index}>{result}</ListRow>;
-        })}
+        </tbody>
       </ListContainer>
     </Container>
   );

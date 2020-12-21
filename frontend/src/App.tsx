@@ -18,6 +18,7 @@ import { ExercisePage } from './components/layout/exercise-page/ExercisePage';
 import { RoutinePage } from './components/layout/routine-page/RoutinePage';
 import { ExerciseItem } from './components/layout/exercise-item/ExerciseItem';
 import { RoutineItem } from './components/layout/routine-item/RoutineItem';
+import { RoutineCrudPanel } from './components/layout/routine-crud-panel/RoutineCrudPanel';
 
 function App(): JSX.Element {
   return (
@@ -45,6 +46,11 @@ function App(): JSX.Element {
           <Route exact path="/permissionCrud" component={PermissionCrud} />
           <Route exact path="/roleCrud" component={RoleCrud} />
           <Route exact path="/userCrudPanel" component={UserCrudPanel} />
+          <Route
+            exact
+            path="/baseRoutineCrudPanel/"
+            component={RoutineCrudPanel}
+          />
           <Route exact path="/exercises" component={ExercisePage} />
           <Route exact path="/exercise/:id" component={ExerciseItem} />
           <Route exact path="/routines" component={RoutinePage} />
