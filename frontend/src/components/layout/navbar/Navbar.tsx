@@ -5,28 +5,18 @@ import GithubLogo32 from './assets/social-media/GitHub-Mark-32px.png';
 import styled from '@emotion/styled';
 import { NavbarImage } from '../../atomic/navbar-image/NavbarImage';
 import { getUserName, isLogged, logout } from '../../../utils/utils';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 8vh;
-  background: white;
-  position: fixed;
-  top: 0;
+  ${tw`h-12 flex justify-around items-center w-full bg-white fixed top-0 `};
   box-shadow: 0vh 0vh 1.2vh #00000029;
-  opacity: 1;
 `;
-
 const Elements = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  ${tw`flex justify-around items-center`};
   width: 50vh;
   font-size: 1.5vh;
 `;
-
 const Logo = styled.img`
   height: 15vh;
 `;

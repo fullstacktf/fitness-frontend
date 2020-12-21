@@ -1,31 +1,22 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 2.5vh;
+  ${tw`flex items-center justify-end h-6`};
   background: #ce3131 0% 0% no-repeat padding-box;
-  opacity: 1;
-`;
-const Box = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  width: 70%;
-  font-size: 2vh;
-  text-align: center;
-  font: italic normal 300 1.2vh/1.6vh Inter;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 1;
 `;
 
+const Box = styled.div`
+  ${tw`flex justify-around items-center h-full tracking-normal
+ `};
+  font: italic normal 300 1.2vh/1.6vh Inter;
+  color: #ffffff;
+  width: 70%;
+`;
 const Link = styled.a`
-  text-decoration: none;
-  color: inherit;
+  ${tw`no-underline `};
 `;
 
 export const Footer: React.FC = (): JSX.Element => {

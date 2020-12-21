@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { TeamMember } from '../../atomic/team-member/TeamMember';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  text-align: center;
-  background: #ebeaeb 0% 0% no-repeat padding-box;
-  padding-top: 4vh;
+  ${tw`text-center bg-gray-200 pt-7`};
 `;
 
 const Members = styled.div`
-  display: flex;
-  justify-content: center;
+  ${tw`flex justify-center`};
 `;
+
 const H1 = styled.h1`
   font: normal normal bold 2.8vh/3vh Inter;
 `;

@@ -7,43 +7,26 @@ import { useForm } from 'react-hook-form';
 import styled from '@emotion/styled';
 import { DEVELOPMENT_URL } from '../../../utils/utils';
 import { Spinner } from '../../atomic/spinner/Spinner';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  ${tw`flex justify-center items-center flex-col border border-gray-300
+ rounded-sm w-72`};
   background: #ffffff 0% 0% no-repeat padding-box;
-  border: 0.1vh solid #aaaaaa;
-  border-radius: 0.4vh;
-  opacity: 1;
-  width: 40vh;
 `;
 
 const Title = styled.div`
-  text-align: left;
-  width: 85%;
+  ${tw`text-left tracking-normal w-10/12 m-0.5`};
   font: normal normal bold 3.4vh/4.3vh Inter;
-  letter-spacing: 0vh;
-  color: #1b1b1b;
-  opacity: 1;
-  margin: 0.5vh;
 `;
 
 const Submit = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  margin: 1vh 0vh;
+  ${tw`flex justify-center items-center flex-col w-full my-1.5`};
 `;
 
 const RegisterLink = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
+  ${tw`flex justify-center items-start w-full`};
   a {
     width: 80%;
     height: 1.6vh;
@@ -62,11 +45,7 @@ const Error = styled.span`
 `;
 
 const ErrorContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 80%;
+  ${tw`flex justify-center items-start flex-col w-4/5`};
   min-height: 2vh;
 `;
 

@@ -3,15 +3,17 @@ import { ItemHeader } from '../../atomic/item-header/ItemHeader';
 import { Description } from '../../atomic/description/Description';
 import styled from '@emotion/styled';
 import { RoutinePanel } from '../routine-panel/RoutinePanel';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${tw`flex flex-col items-center`};
 `;
+
 const ContainerItem = styled.div`
-  margin: 4vh;
+  ${tw`m-7`};
 `;
+
 export const RoutineItem: React.FC = () => {
   return (
     <div>

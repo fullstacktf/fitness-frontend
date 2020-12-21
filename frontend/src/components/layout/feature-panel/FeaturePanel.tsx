@@ -1,28 +1,21 @@
 import * as React from 'react';
 import { Feature } from '../../atomic/feature/Feature';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  ${tw`flex justify-center items-center flex-col`};
 `;
-
 const Title = styled.h1`
-  text-align: center;
+  ${tw`text-center tracking-normal`};
   font: normal normal bold 2.8vh/3vh Inter;
-  letter-spacing: 0vh;
   color: #1b1b1b;
-  opacity: 1;
 `;
-
 const Subtitle = styled.h2`
-  text-align: center;
+  ${tw`text-center tracking-normal`};
   font: normal normal normal 20px/30px Inter;
-  letter-spacing: 0px;
   color: #1b1b1b;
-  opacity: 1;
 `;
 
 export const FeaturePanel: React.FC = () => {

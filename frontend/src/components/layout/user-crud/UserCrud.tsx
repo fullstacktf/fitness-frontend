@@ -3,10 +3,11 @@ import styled from '@emotion/styled';
 import { DynamicList } from '../dynamic-list/DynamicList';
 import axios from 'axios';
 import { DEVELOPMENT_URL } from '../../../utils/utils';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  width: 100%;
-  height: 100%;
+  ${tw`w-full h-full`};
 `;
 
 export const UserCrud = (): JSX.Element => {

@@ -6,9 +6,11 @@ import { Navbar } from '../navbar/Navbar';
 import { ReviewPanel } from '../review-panel/ReviewPanel';
 import { TeamMemberPanel } from '../team-member-panel/TeamMemberPanel';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  width: 100%;
+  ${tw`w-full`};
 `;
 
 export const Landing: React.FC = (): JSX.Element => {

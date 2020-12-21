@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Label = styled.label`
   font: normal normal bold 1.6vh/2.1vh Inter;
@@ -18,15 +20,12 @@ const Input = styled.input`
   opacity: 1;
 `;
 const TextContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${tw`flex items-center justify-between`};
 `;
 
 const LINK = styled.a`
+  ${tw`tracking-normal no-underline`};
   font: normal normal normal 1.2vh/1.6vh Inter;
-  letter-spacing: 0vh;
-  text-decoration: none;
   color: #3182ce;
 `;
 

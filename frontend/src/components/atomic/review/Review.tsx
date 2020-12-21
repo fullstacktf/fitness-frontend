@@ -1,37 +1,30 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
   max-width: 46vh;
 `;
 
 const H1 = styled.h1`
+  ${tw`text-left tracking-normal`};
   word-wrap: wrap;
-  text-align: left;
-  font: normal normal bold 2.8vh/3vh Inter;
-  letter-spacing: 0px;
   color: #1b1b1b;
-  opacity: 1;
+  font: normal normal bold 2.8vh/3vh Inter;
 `;
 
 const H2 = styled.h2`
-  word-wrap: wrap;
-  text-align: left;
+  ${tw`text-left tracking-normal mb-0`};
   font: normal normal bold 1.6vh/3vh Inter;
-  letter-spacing: 0px;
   color: #1b1b1b;
-  opacity: 1;
-  margin-bottom: 0vh;
-`;
-
-const H3 = styled.h3`
   word-wrap: wrap;
-  text-align: left;
+`;
+const H3 = styled.h3`
+  ${tw`text-left tracking-normal mt-0`};
   font: italic normal normal 1.6vh/3vh Inter;
-  letter-spacing: 0px;
   color: #1b1b1b;
-  opacity: 1;
-  margin-top: 0vh;
+  word-wrap: wrap;
 `;
 
 export interface ReviewProps {

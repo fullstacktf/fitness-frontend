@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { HashLink } from 'react-router-hash-link';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 export interface NavbarElementProps {
   text: string;
@@ -8,11 +10,8 @@ export interface NavbarElementProps {
   color?: string;
   onClick?: () => void;
 }
-
 const Element = styled.li`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  ${tw`flex justify-center items-center`};
 `;
 
 const LinkContainer = styled.div`

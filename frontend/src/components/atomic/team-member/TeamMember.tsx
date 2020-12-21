@@ -1,26 +1,19 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 28vh;
-  height: 32vh;
+  ${tw`flex justify-center items-center flex-col w-44 h-48`};
 `;
 
 const Image = styled.img`
-  border-radius: 50%;
-  width: 50%;
+  ${tw`w-3/6 rounded-full`};
   height: 45%;
 `;
 
 const Name = styled.h1`
-  display: flex;
-  flex-grow: 1;
-  font-size: 2vh;
-  text-align: center;
+  ${tw`flex flex-grow text-center`};
   font: normal normal bold 2.4vh/3.2vh Inter;
 `;
 

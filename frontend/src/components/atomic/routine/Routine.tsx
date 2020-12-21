@@ -1,20 +1,17 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
+  ${tw`flex flex-row items-center `};
   max-width: 46vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 `;
 
 const P = styled.p`
-  word-wrap: wrap;
-  text-align: left;
+  ${tw`text-left tracking-normal text-black `};
   font: normal normal bold 3.2vh/4vh Inter;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 1;
+  word-wrap: wrap;
 `;
 
 export interface RoutineProps {

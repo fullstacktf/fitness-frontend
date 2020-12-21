@@ -1,20 +1,18 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 export interface NavbarImageProps {
   imageRoute: string;
   link: string;
   alt?: string;
 }
-
 const Element = styled.li`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  ${tw`flex justify-center items-center`};
 `;
-
 const Link = styled.a`
-  text-decoration: none;
+  ${tw`no-underline`};
 `;
 
 const Logo = styled.img`

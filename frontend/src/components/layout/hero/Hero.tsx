@@ -1,17 +1,15 @@
 import * as React from 'react';
 import Workout from './assets/working_out.svg';
 import styled from '@emotion/styled';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  background: #f89d9d;
-  margin: 0;
-  padding: 8vh 24vh;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-  align-items: center;
+  ${tw`m-0 flex flex-row-reverse justify-evenly items-center `};
   height: 70vh;
   color: #1b1b1b;
+  background: #f89d9d;
+  padding: 8vh 24vh;
 `;
 
 const H1 = styled.h1`

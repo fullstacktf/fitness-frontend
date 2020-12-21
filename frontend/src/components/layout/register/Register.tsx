@@ -4,21 +4,16 @@ import styled from '@emotion/styled';
 import { Navbar } from '../navbar/Navbar';
 import { useHistory } from 'react-router-dom';
 import { isLogged } from '../../../utils/utils';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  ${tw`flex items-center flex-col w-full h-full`};
 `;
 
 const Title = styled.div`
-  width: 100%;
-  text-align: center;
+  ${tw`w-full text-center mt-28 mb-6`};
   font: normal normal bold 5vh/6vh Inter;
-  margin-top: 15vh;
-  margin-bottom: 3vh;
 `;
 
 export const Register: React.FC = () => {
