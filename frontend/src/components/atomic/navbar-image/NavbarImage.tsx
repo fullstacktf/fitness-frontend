@@ -11,6 +11,7 @@ const Element = styled.li`
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  margin: 0vh 1vh;
 `;
 
 const Link = styled.a`
@@ -21,15 +22,13 @@ const Logo = styled.img`
   height: 2.3vh;
 `;
 
-export const NavbarImage: React.FC<NavbarImageProps> = ({
-  imageRoute,
-  link,
-  alt,
-}: NavbarImageProps): JSX.Element => {
+export const NavbarImage: React.FC<NavbarImageProps> = (
+  NavbarImageProps
+): JSX.Element => {
   return (
     <Element>
-      <Link href={link}>
-        <Logo src={imageRoute} alt={alt} />
+      <Link href={NavbarImageProps.link}>
+        <Logo src={NavbarImageProps.imageRoute} alt={NavbarImageProps.alt} />
       </Link>
     </Element>
   );

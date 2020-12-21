@@ -4,6 +4,7 @@ import YouLiftLogo from './assets/YouLiftLogo.png';
 import GithubLogo32 from './assets/social-media/GitHub-Mark-32px.png';
 import styled from '@emotion/styled';
 import { NavbarImage } from '../../atomic/navbar-image/NavbarImage';
+import { getUserName, isLogged, logout } from '../../../utils/utils';
 
 const Container = styled.div`
   display: flex;
@@ -20,9 +21,9 @@ const Container = styled.div`
 
 const Elements = styled.ul`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  width: 50vh;
+  width: 30%;
   font-size: 1.5vh;
 `;
 
@@ -31,6 +32,42 @@ const Logo = styled.img`
 `;
 
 export const Navbar: React.FC = (): JSX.Element => {
+  const [isLogin, setIsLogin] = React.useState(false);
+  const [userName, setUserName] = React.useState(String);
+
+  const signInButton: JSX.Element = (
+    <NavbarElement text="Sign In" link="/login" color="#CE3131" />
+  );
+
+  const registerButton: JSX.Element = (
+    <NavbarElement text="Register" link="/register" color="#CE3131" />
+  );
+
+  const profileButton: JSX.Element = (
+    <NavbarElement text={userName} link="/profile" color="#1b1b1b" />
+  );
+
+  const logoutButton: JSX.Element = (
+    <NavbarElement text="Logout" link="" onClick={logout} color="#1b1b1b" />
+  );
+
+  const exercisesButton: JSX.Element = (
+    <NavbarElement text="Exercises" link="/exercises" color="#1b1b1b" />
+  );
+
+  const routinesButton: JSX.Element = (
+    <NavbarElement text="Routines" link="/routines" color="#1b1b1b" />
+  );
+
+  React.useEffect(() => {
+    if (isLogged()) {
+      setIsLogin(true);
+      getUserName().then((name) => setUserName(name));
+    } else {
+      setIsLogin(false);
+    }
+  }, []);
+
   return (
     <Container>
       <Logo src={YouLiftLogo} alt="YouLift Logo" />
@@ -38,14 +75,16 @@ export const Navbar: React.FC = (): JSX.Element => {
         <NavbarElement text="Home" link="/" />
         <NavbarElement text="Why" link="/#why" />
         <NavbarElement text="Who" link="/#who" />
+        {isLogin ? exercisesButton : ''}
+        {isLogin ? routinesButton : ''}
         <NavbarElement text="Contact" link="/contact" />
         <NavbarImage
           link="https://github.com/fullstacktf/fitness-frontend"
           imageRoute={GithubLogo32}
           alt="Github"
         />
-        <NavbarElement text="Sign In" link="/login" color="#CE3131" />
-        <NavbarElement text="Register" link="/register" color="#CE3131" />
+        {isLogin ? profileButton : signInButton}
+        {isLogin ? logoutButton : registerButton}
       </Elements>
     </Container>
   );

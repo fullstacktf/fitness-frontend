@@ -2,7 +2,15 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
-  max-width: 46vh;
+  max-width: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // align-items: center;
+`;
+
+const Content = styled.div`
+  padding: 2vh;
 `;
 
 const H1 = styled.h1`
@@ -34,6 +42,13 @@ const H3 = styled.h3`
   margin-top: 0vh;
 `;
 
+const Image = styled.img`
+  border-radius: 50%;
+  height: 10vh;
+  width: 10vh;
+  margin-top: 2vh;
+`;
+
 export interface ReviewProps {
   picture: string;
   text: string;
@@ -41,18 +56,17 @@ export interface ReviewProps {
   role: string;
 }
 
-export const Review: React.FC<ReviewProps> = ({
-  picture,
-  text,
-  author,
-  role,
-}: ReviewProps): JSX.Element => {
+export const Review: React.FC<ReviewProps> = (ReviewProps): JSX.Element => {
   return (
     <Container>
-      <img src={picture} alt="" />
-      <H1>{text}</H1>
-      <H2>{author}</H2>
-      <H3>{role}</H3>
+      <Content>
+        <Image src={ReviewProps.picture} alt="" />
+      </Content>
+      <Content>
+        <H1>{ReviewProps.text}</H1>
+        <H2>{ReviewProps.author}</H2>
+        <H3>{ReviewProps.role}</H3>
+      </Content>
     </Container>
   );
 };

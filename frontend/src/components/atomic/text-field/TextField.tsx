@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const P = styled.div`
-  font: normal normal bold 1.6vh/2.1vh Inter V;
+const Label = styled.label`
+  font: normal normal bold 1.6vh/2.1vh Inter;
   letter-spacing: 0vh;
   color: #1b1b1b;
   opacity: 1;
@@ -24,7 +24,7 @@ const TextContainer = styled.div`
 `;
 
 const LINK = styled.a`
-  font: normal normal normal 1.2vh/1.6vh Inter V;
+  font: normal normal normal 1.2vh/1.6vh Inter;
   letter-spacing: 0vh;
   text-decoration: none;
   color: #3182ce;
@@ -32,24 +32,24 @@ const LINK = styled.a`
 
 export interface TextFieldProps {
   text: string;
-  type: 'text' | 'email' | 'password';
+  type: 'text' | 'email' | 'password' | 'date' | 'datetime-local';
   linkText?: string;
   link?: string;
+  register?: any;
 }
 
-export const TextField: React.FC<TextFieldProps> = ({
-  text,
-  type,
-  linkText,
-  link,
-}: TextFieldProps) => {
+export const TextField: React.FC<TextFieldProps> = (TextFieldProps) => {
   return (
     <div>
       <TextContainer>
-        <P>{text}</P>
-        <LINK href={link}>{linkText}</LINK>
+        <Label htmlFor={TextFieldProps.text}>{TextFieldProps.text}</Label>
+        <LINK href={TextFieldProps.link}>{TextFieldProps.linkText}</LINK>
       </TextContainer>
-      <Input type={type} />
+      <Input
+        name={TextFieldProps.text}
+        type={TextFieldProps.type}
+        ref={TextFieldProps.register}
+      />
     </div>
   );
 };

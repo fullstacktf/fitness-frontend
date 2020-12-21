@@ -1,6 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { Review } from '../../atomic/review/Review';
+import EdgarPoePicture from './assets/edgar-poe.jpeg';
+import JohnSmithPicture from './assets/john-smith.jpeg';
+import MarySuePicture from './assets/mary-sue.jpeg';
 
 const Container = styled.div`
   display: grid;
@@ -8,9 +11,6 @@ const Container = styled.div`
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   background: #ececec 0% 0% no-repeat padding-box;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   padding: 8vh 24vh;
 `;
 
@@ -18,22 +18,22 @@ export const ReviewPanel: React.FC = (): JSX.Element => {
   return (
     <Container role="presentation">
       <Review
-        picture=""
-        text="One of the best designed web apps I have ever set my eyes on."
-        author="Manz"
-        role="Web development mentor"
+        picture={JohnSmithPicture}
+        text="Ever since I started using this application, I haven't had any other need to use another tracker ever again!"
+        author="John Smith"
+        role="Professional Weight Lifter"
       />
       <Review
-        picture=""
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
-        author="Manz"
-        role="Web development mentor"
+        picture={MarySuePicture}
+        text="I didn't know how much I needed this app since I started using it."
+        author="Mary Sue"
+        role="Power Lifter"
       />
       <Review
-        picture=""
-        text="One of the best designed web apps I have ever set my eyes on."
-        author="Manz"
-        role="Web development mentor"
+        picture={EdgarPoePicture}
+        text="Using this app has rendered all my older apps outdated."
+        author="Edgar Poe"
+        role="Diary Columnist"
       />
     </Container>
   );
