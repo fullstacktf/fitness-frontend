@@ -7,8 +7,8 @@ export const PRODUCTION_URL = 'https://api.youlift.xyz';
 export const DEVELOPMENT_DOMAIN = 'localhost';
 export const PRODUCTION_DOMAIN = '.youlift.xyz';
 
-export const CURRENT_URL = DEVELOPMENT_URL;
-export const CURRENT_DOMAIN = DEVELOPMENT_DOMAIN;
+export const CURRENT_URL = PRODUCTION_URL;
+export const CURRENT_DOMAIN = PRODUCTION_DOMAIN;
 
 export const COOKIE_NAME = 'mysession';
 
