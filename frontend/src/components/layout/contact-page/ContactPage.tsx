@@ -62,15 +62,9 @@ export const ContactPage: React.FC = (): JSX.Element => {
         <H3>supp.youlift.xyz@gmail.com</H3>
         <H3>You can also find us in our social media.</H3>
         <Logos>
-          <a href="/contact">
-            <Logo src={LinkedInLogo} alt="LinkedIn" />
-          </a>
-          <a href="/contact">
-            <Logo src={TwitterLogo} alt="Twitter" />
-          </a>
-          <a href="/contact">
-            <Logo src={YouTubeLogo} alt="YouTube" />
-          </a>
+          <Logo src={LinkedInLogo} alt="LinkedIn" />
+          <Logo src={TwitterLogo} alt="Twitter" />
+          <Logo src={YouTubeLogo} alt="YouTube" />
         </Logos>
       </Content>
       <Footer />
