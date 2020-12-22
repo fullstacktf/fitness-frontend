@@ -78,7 +78,7 @@ export const Profile: React.FC = () => {
   const fillRoutineInformation = () => {
     getUserRoutine().then((routine) => {
       if (routine !== Error) {
-        setRoutineID(routine.ID);
+        setRoutineID(routine.BaseRoutineID);
         setRoutineName(routine.Name);
         setRoutineDescription(routine.Description);
       }
