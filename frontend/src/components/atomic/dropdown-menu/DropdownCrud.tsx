@@ -14,7 +14,7 @@ export const DropdownCrud: React.FC = () => {
             color="primary"
             {...bindTrigger(popupState)}
           >
-            Open CRUDs
+            CRUDs
           </Button>
           <Menu {...bindMenu(popupState)}>
             <MenuItem onClick={() => history.push('/userCrud')}>Users</MenuItem>

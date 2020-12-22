@@ -88,13 +88,13 @@ export const Navbar: React.FC = (): JSX.Element => {
         <NavbarElement text="Who" link="/#who" />
         {isLogin ? exercisesButton : ''}
         {isLogin ? routinesButton : ''}
-        {isAdmin ? dropdownCrud : ''}
         <NavbarElement text="Contact" link="/contact" />
         <NavbarImage
           link="https://github.com/fullstacktf/fitness-frontend"
           imageRoute={GithubLogo32}
           alt="Github"
         />
+        {isAdmin ? dropdownCrud : ''}
         {isLogin ? profileButton : signInButton}
         {isLogin ? logoutButton : registerButton}
       </Elements>
