@@ -84,7 +84,20 @@ const AssignRoutinesContainer = styled.div`
   }
 `;
 
-interface UserObject {
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  Button {
+    margin: 0px;
+    width: 1vw;
+    height: 1vh;
+    font-weight: bold;
+    font-size: 2vw;
+  }
+`;
+interface User {
   ID: number;
   Name: string;
   Address: string;
@@ -93,13 +106,27 @@ interface UserObject {
   DNI: string;
 }
 
+interface AssignedRoutine {
+  ID: string;
+  Name: string;
+}
+
 interface RoutineObject {
   value: string;
   label: string;
 }
 
 export const UserCrudPanel = (): JSX.Element => {
-  const [user, setUser] = React.useState<UserObject>({
+  const customSelectStyle = {
+    option: (provided: any, state: any) => ({
+      ...provided,
+
+      color: state.isSelected ? 'white' : 'black',
+      background: state.isSelected ? '#ce3131' : 'white',
+    }),
+  };
+
+  const [user, setUser] = React.useState<User>({
     ID: 0,
     Name: '',
     Address: '',
@@ -107,7 +134,14 @@ export const UserCrudPanel = (): JSX.Element => {
     Phone: '',
     DNI: '',
   });
-  const [assignedRoutines, setAssignedRoutines] = React.useState([{}]);
+  const [assignedRoutines, setAssignedRoutines] = React.useState<
+    [AssignedRoutine]
+  >([
+    {
+      ID: '',
+      Name: '',
+    },
+  ]);
   const [routines, setRoutines] = React.useState<RoutineObject[]>([
     {
       value: '',
@@ -175,25 +209,32 @@ export const UserCrudPanel = (): JSX.Element => {
       if (data === Error) {
         console.log(data);
       } else {
-        console.log(data);
         setAssignedRoutines(data);
       }
     });
   }, []);
 
-  const assignRoutine = (): Promise<any> => {
+  const assignRoutine = (): Promise<any | null> => {
     axios.defaults.withCredentials = true;
     return axios
       .post(CURRENT_URL + '/v1/assignedRoutine/', {
         UserID: user.ID,
         BaseRoutineID: selectedRoutine.value,
       })
-      .then((response) => response.data)
+      .then((response) => window.location.reload())
       .catch((error) => error);
   };
 
   const handleChange = (e: any) => {
     setSelectedRoutine(e);
+  };
+
+  const removeRoutine = (id: string): Promise<any> => {
+    axios.defaults.withCredentials = true;
+    return axios
+      .delete(CURRENT_URL + '/v1/assignedRoutine/' + id)
+      .then((response) => window.location.reload())
+      .catch((error) => error);
   };
 
   return (
@@ -206,7 +247,6 @@ export const UserCrudPanel = (): JSX.Element => {
             <div>DNI: {user.DNI}</div>
             <div>Address: {user.Address}</div>
           </Column>
-
           <Column>
             <div>E-mail: {user.Email}</div>
             <div>Phone: {user.Phone}</div>
@@ -220,6 +260,7 @@ export const UserCrudPanel = (): JSX.Element => {
             options={routines}
             isClearable={true}
             isSearchable={true}
+            styles={customSelectStyle}
           ></Select>
           <Button label="Add routine" onClick={() => assignRoutine()}></Button>
         </AssignRoutinesContainer>
@@ -227,6 +268,12 @@ export const UserCrudPanel = (): JSX.Element => {
           {assignedRoutines.map((value: any, index) => {
             return (
               <ListRow key={index}>
+                <ButtonContainer>
+                  <Button
+                    label="X"
+                    onClick={() => removeRoutine(value.ID)}
+                  ></Button>
+                </ButtonContainer>
                 <RoutineName>{value.Name}</RoutineName>
                 <RoutineDescription>{value.Description}</RoutineDescription>
               </ListRow>
