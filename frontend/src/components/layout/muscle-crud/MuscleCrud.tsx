@@ -17,6 +17,7 @@ const ListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2vh;
   margin-top: 10vh;
   font: normal normal bold 2.5vh/4vh Inter;
   color: #ffffff;
@@ -28,22 +29,22 @@ const CrudTitle = styled.span`
   color: #000000;
 `;
 
-export const UserCrud = (): JSX.Element => {
-  const [users, setUsers] = React.useState([{}]);
-  const getUsers = (): Promise<any> => {
+export const MuscleCrud = (): JSX.Element => {
+  const [muscle, setMuscle] = React.useState([{}]);
+  const getMuscle = (): Promise<any> => {
     axios.defaults.withCredentials = true;
     return axios
-      .post(CURRENT_URL + '/v1/user/filter', {})
+      .post(CURRENT_URL + '/v1/muscle/filter', {})
       .then((response) => response.data)
       .catch((error) => error);
   };
 
   React.useEffect(() => {
-    getUsers().then((data) => {
+    getMuscle().then((data) => {
       if (data === Error) {
         console.log(data);
       } else {
-        setUsers(data);
+        setMuscle(data);
       }
     });
   }, []);
@@ -53,9 +54,9 @@ export const UserCrud = (): JSX.Element => {
       <Navbar />
       <ListContainer>
         <CrudTitle>
-          <h1>Users</h1>
+          <h1>Muscles</h1>
         </CrudTitle>
-        <DynamicList objs={users} idObject="ID" link="/userCrudPanel" />
+        <DynamicList objs={muscle} idObject="id" link="" />
       </ListContainer>
     </Container>
   );

@@ -17,6 +17,7 @@ const ListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2vh;
   margin-top: 10vh;
   font: normal normal bold 2.5vh/4vh Inter;
   color: #ffffff;
@@ -28,22 +29,22 @@ const CrudTitle = styled.span`
   color: #000000;
 `;
 
-export const UserCrud = (): JSX.Element => {
-  const [users, setUsers] = React.useState([{}]);
-  const getUsers = (): Promise<any> => {
+export const ExerciseCategoryCrud = (): JSX.Element => {
+  const [execiseCategories, setExerciseCategory] = React.useState([{}]);
+  const getExerciseCategory = (): Promise<any> => {
     axios.defaults.withCredentials = true;
     return axios
-      .post(CURRENT_URL + '/v1/user/filter', {})
+      .post(CURRENT_URL + '/v1/exerciseCategory/filter', {})
       .then((response) => response.data)
       .catch((error) => error);
   };
 
   React.useEffect(() => {
-    getUsers().then((data) => {
+    getExerciseCategory().then((data) => {
       if (data === Error) {
         console.log(data);
       } else {
-        setUsers(data);
+        setExerciseCategory(data);
       }
     });
   }, []);
@@ -53,9 +54,9 @@ export const UserCrud = (): JSX.Element => {
       <Navbar />
       <ListContainer>
         <CrudTitle>
-          <h1>Users</h1>
+          <h1>Exercise categories</h1>
         </CrudTitle>
-        <DynamicList objs={users} idObject="ID" link="/userCrudPanel" />
+        <DynamicList objs={execiseCategories} idObject="id" link="" />
       </ListContainer>
     </Container>
   );
