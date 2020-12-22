@@ -135,13 +135,8 @@ export const UserCrudPanel = (): JSX.Element => {
     DNI: '',
   });
   const [assignedRoutines, setAssignedRoutines] = React.useState<
-    [AssignedRoutine]
-  >([
-    {
-      ID: '',
-      Name: '',
-    },
-  ]);
+    AssignedRoutine[]
+  >([]);
   const [routines, setRoutines] = React.useState<RoutineObject[]>([
     {
       value: '',
@@ -237,6 +232,32 @@ export const UserCrudPanel = (): JSX.Element => {
       .catch((error) => error);
   };
 
+  const routinesContainerElement = (): JSX.Element => {
+    if (assignedRoutines.length !== 0) {
+      if (assignedRoutines[0] !== undefined) {
+        return (
+          <RoutinesContainer>
+            {assignedRoutines.map((value: any, index) => {
+              return (
+                <ListRow key={index}>
+                  <ButtonContainer>
+                    <Button
+                      label="X"
+                      onClick={() => removeRoutine(value.ID)}
+                    ></Button>
+                  </ButtonContainer>
+                  <RoutineName>{value.Name}</RoutineName>
+                  <RoutineDescription>{value.Description}</RoutineDescription>
+                </ListRow>
+              );
+            })}
+          </RoutinesContainer>
+        );
+      }
+    }
+    return <RoutinesContainer></RoutinesContainer>;
+  };
+
   return (
     <Container>
       <Navbar />
@@ -264,22 +285,7 @@ export const UserCrudPanel = (): JSX.Element => {
           ></Select>
           <Button label="Add routine" onClick={() => assignRoutine()}></Button>
         </AssignRoutinesContainer>
-        <RoutinesContainer>
-          {assignedRoutines.map((value: any, index) => {
-            return (
-              <ListRow key={index}>
-                <ButtonContainer>
-                  <Button
-                    label="X"
-                    onClick={() => removeRoutine(value.ID)}
-                  ></Button>
-                </ButtonContainer>
-                <RoutineName>{value.Name}</RoutineName>
-                <RoutineDescription>{value.Description}</RoutineDescription>
-              </ListRow>
-            );
-          })}
-        </RoutinesContainer>
+        {routinesContainerElement()}
       </UserContainer>
     </Container>
   );
