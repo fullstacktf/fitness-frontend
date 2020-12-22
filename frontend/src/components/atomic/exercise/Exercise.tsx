@@ -1,17 +1,14 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { HashLink } from 'react-router-hash-link';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  max-width: 46vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 1px solid #1b1b1b;
-  padding: 2vh 0vh;
+  ${tw`flex flex-row items-center py-3.5 max-w-xs border border-gray-700 `};
+  cursor: pointer;
   background: #ffffff;
   color: #1b1b1b;
-  cursor: pointer;
   a {
     display: flex;
     flex-direction: row;
@@ -24,36 +21,21 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  flex-direction: column;
-  margin: 0vh 2vh;
-  height: 100%;
+  ${tw`flex flex-col items-start justify-evenly mx-3.5 h-full`};
 `;
 
 const P = styled.p`
-  word-wrap: wrap;
-  text-align: left;
-  font: normal normal bold 2.2vh/3vh Inter;
-  letter-spacing: 0px;
-  opacity: 1;
-  line-height: 3vh;
+  ${tw`tracking-normal text-left font-bold text-sm flex-wrap leading-5 `};
+  font-family: Inter;
 `;
 
 const Span = styled.span`
-  word-wrap: wrap;
-  text-align: left;
-  font: normal normal bold 1.8vh/2.8vh Inter;
-  letter-spacing: 0px;
-  opacity: 1;
-  line-height: 1vh;
+  ${tw`flex-wrap text-left tracking-normal font-bold text-xs`};
+  font-family: Inter;
 `;
 
 const Image = styled.img`
-  width: 10vh;
-  border-radius: 50%;
-  border: 1px solid #1b1b1b;
+  ${tw`border border-gray-700 w-14 h-14 rounded-full`};
 `;
 
 export interface ExerciseProps {

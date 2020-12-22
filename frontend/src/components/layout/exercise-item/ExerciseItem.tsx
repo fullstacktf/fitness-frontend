@@ -11,7 +11,7 @@ import { Footer } from '../footer/Footer';
 import { MusclePanel } from '../muscle-panel/MusclePanel';
 
 const Container = styled.div`
-  ${tw`flex justify-center`};
+  ${tw`flex justify-center items-center flex-col w-full`};
 `;
 
 const ContainerVideo = styled.div`

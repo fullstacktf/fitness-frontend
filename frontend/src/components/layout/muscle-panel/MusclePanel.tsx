@@ -1,23 +1,35 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { Muscle } from '../../atomic/muscle/Muscle';
+import 'tailwindcss/dist/base.min.css';
+import tw from 'twin.macro';
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  ${tw`flex justify-center items-center flex-col`};
   border: 3px inset #ffffff;
   width: 40vh;
 `;
+// const Container = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   border: 3px inset #ffffff;
+//   width: 40vh;
+// `;
 
 const Header = styled.div`
-  text-align: center;
-  width: 100%;
-  height: 20%;
+  ${tw`text-center w-full h-1/5`};
   background: #ce3131;
   color: #ffffff;
 `;
+// const Header = styled.div`
+//   text-align: center;
+//   width: 100%;
+//   height: 20%;
+//   background: #ce3131;
+//   color: #ffffff;
+// `;
 
 export interface MusclePanelProps {
   muscles: any[];

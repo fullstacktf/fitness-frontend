@@ -4,22 +4,19 @@ import 'tailwindcss/dist/base.min.css';
 import tw from 'twin.macro';
 
 const Container = styled.div`
-  ${tw`bg-red-600 max-w-full`};
-  padding: 8.2vh 0 1vh 24vh;
+  ${tw`bg-red-600 max-w-full pt-14 pb-1 pl-32`};
 `;
 
 const H1 = styled.h1`
-  ${tw`mt-2 mb-0`};
-  font: normal normal bold 6.2vh/7.7vh Inter;
+  ${tw`mt-2 mb-0 font-bold text-4xl w-11/12 pt-14 pb-1 pl-32`};
+  font-family: Inter;
   color: #ececec;
-  width: 87.8%;
-  padding: 8.2vh 0 1vh 24vh;
 `;
 
 const H2 = styled.h2`
-  font: normal normal bold 2.8vh/3.9vh Inter;
+  ${tw`m-0 font-bold text-2xl ml-36`};
+  font-family: Inter;
   color: #ececec;
-  margin: 0;
 `;
 
 export interface ItemHeaderProps {

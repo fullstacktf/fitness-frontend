@@ -19,11 +19,8 @@ const H1 = styled.h1`
 `;
 
 const Paragraph = styled.p`
-  font: normal normal normal 2.4vh/3.2vh Inter;
-  width: 51vh;
-  word-wrap: wrap;
-  margin-top: 0;
-  margin-bottom: 3vh;
+  ${tw`flex-wrap mt-0 mb-6 text-lg w-96`};
+  font-family: Inter;
 `;
 
 const Image = styled.img`
@@ -32,12 +29,9 @@ const Image = styled.img`
 `;
 
 const Button = styled.a`
+  ${tw`py-3 px-8 text-lg rounded-lg bg-white`};
   color: #ce3131;
-  text-decoration: none;
-  padding: 1.5vh 3.5vh;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  font: normal normal normal 2vh/2.7vh Inter;
-  border-radius: 1vh;
+  font-family: Inter;
 `;
 
 export const Hero: React.FC = (): JSX.Element => {

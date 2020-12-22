@@ -19,10 +19,7 @@ const ContainerItem = styled.div`
 `;
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  ${tw`flex flex-col items-center w-full`};
 `;
 
 interface RoutineInformation {

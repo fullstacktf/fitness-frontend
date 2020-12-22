@@ -13,15 +13,14 @@ const Image = styled.img`
 `;
 
 const Name = styled.h1`
-  ${tw`flex flex-grow text-center mb-4`};
-  font: normal normal bold 2.4vh/3.2vh Inter;
+  ${tw`flex flex-grow text-center mb-4 font-bold text-xl`};
+  font-family: Inter;
 `;
 
 const Role = styled.p`
+  ${tw`text-base italic mb-7`};
   color: #aaaaaa;
-  font-size: 1.8vh;
-  font: italic normal 300 1.6vh/2.1vh Inter;
-  margin: 0 0 6vh 0;
+  font-family: Inter;
 `;
 
 export interface TeamMemberProps {
