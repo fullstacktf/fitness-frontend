@@ -34,7 +34,7 @@ export const getUserID = (): Promise<number> => {
 
 export const logout = (): void => {
   if (Cookies.get(COOKIE_NAME)) {
-    Cookies.remove(COOKIE_NAME, { path: '/', domain: DEVELOPMENT_DOMAIN });
+    Cookies.remove(COOKIE_NAME, { path: '/', domain: CURRENT_DOMAIN });
     window.location.replace('/');
   }
 };

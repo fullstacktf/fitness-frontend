@@ -67,7 +67,7 @@ export const Navbar: React.FC = (): JSX.Element => {
     if (isLogged()) {
       setIsLogin(true);
       getUserInformation().then((info) => {
-        setUserName(info.Name);
+        setUserName(info.Name.split(' ')[0]);
         if (info.Role.ID === 1) {
           setIsAdmin(true);
         } else {
