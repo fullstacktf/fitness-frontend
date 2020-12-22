@@ -62,7 +62,7 @@ export const Navbar: React.FC = (): JSX.Element => {
   React.useEffect(() => {
     if (isLogged()) {
       setIsLogin(true);
-      getUserName().then((name) => setUserName(name));
+      getUserName().then((name) => setUserName(name.split(' ')[0]));
     } else {
       setIsLogin(false);
     }
