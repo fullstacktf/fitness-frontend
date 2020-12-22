@@ -28,7 +28,6 @@ jobs:
         run: |
           cd frontend
           npm run eslint
-          npm run stylelint
 
       - name: Run tests
         run: |
