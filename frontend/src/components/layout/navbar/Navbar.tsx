@@ -4,7 +4,8 @@ import YouLiftLogo from './assets/YouLiftLogo.png';
 import GithubLogo32 from './assets/social-media/GitHub-Mark-32px.png';
 import styled from '@emotion/styled';
 import { NavbarImage } from '../../atomic/navbar-image/NavbarImage';
-import { getUserName, isLogged, logout } from '../../../utils/utils';
+import { DropdownCrud } from '../../atomic/dropdown-menu/DropdownCrud';
+import { getUserInformation, isLogged, logout } from '../../../utils/utils';
 
 const Container = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ const Logo = styled.img`
 
 export const Navbar: React.FC = (): JSX.Element => {
   const [isLogin, setIsLogin] = React.useState(false);
+  const [isAdmin, setIsAdmin] = React.useState(false);
   const [userName, setUserName] = React.useState(String);
 
   const signInButton: JSX.Element = (
@@ -59,10 +61,19 @@ export const Navbar: React.FC = (): JSX.Element => {
     <NavbarElement text="Routines" link="/routines" color="#1b1b1b" />
   );
 
+  const dropdownCrud: JSX.Element = <DropdownCrud />;
+
   React.useEffect(() => {
     if (isLogged()) {
       setIsLogin(true);
-      getUserName().then((name) => setUserName(name));
+      getUserInformation().then((info) => {
+        setUserName(info.Name);
+        if (info.Role.ID === 1) {
+          setIsAdmin(true);
+        } else {
+          setIsAdmin(false);
+        }
+      });
     } else {
       setIsLogin(false);
     }
@@ -77,6 +88,7 @@ export const Navbar: React.FC = (): JSX.Element => {
         <NavbarElement text="Who" link="/#who" />
         {isLogin ? exercisesButton : ''}
         {isLogin ? routinesButton : ''}
+        {isAdmin ? dropdownCrud : ''}
         <NavbarElement text="Contact" link="/contact" />
         <NavbarImage
           link="https://github.com/fullstacktf/fitness-frontend"
