@@ -6,7 +6,6 @@ import { Navbar } from '../navbar/Navbar';
 import { useLocation } from 'react-router-dom';
 import { Button } from '../../atomic/button /Button';
 import Select from 'react-select';
-import { Routine } from '../../atomic/routine/Routine';
 
 const Container = styled.div`
   justify-content: center;
@@ -77,6 +76,20 @@ const BaseExercisesContainer = styled.div`
   }
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  Button {
+    margin: 0px;
+    width: 1vw;
+    height: 1vh;
+    font-weight: bold;
+    font-size: 2vw;
+  }
+`;
+
 interface SelectedBaseExercise {
   value: string;
   label: string;
@@ -94,7 +107,7 @@ interface RoutineExercise {
 }
 
 export const RoutineCrudPanel: React.FC = () => {
-  const customStyles = {
+  const customSelectStyle = {
     option: (provided: any, state: any) => ({
       ...provided,
 
@@ -156,7 +169,6 @@ export const RoutineCrudPanel: React.FC = () => {
       if (data === Error) {
       } else {
         setBaseRoutine(data);
-        console.log(data);
         setExercises(data.BaseExercises);
       }
     });
@@ -224,7 +236,7 @@ export const RoutineCrudPanel: React.FC = () => {
             options={baseExercises}
             isClearable={true}
             isSearchable={true}
-            styles={customStyles}
+            styles={customSelectStyle}
           ></Select>
           <Button
             label="Add exercise"
@@ -235,10 +247,12 @@ export const RoutineCrudPanel: React.FC = () => {
           {exercises.map((value: any, index) => {
             return (
               <ListRow key={index}>
-                <Button
-                  label="X"
-                  onClick={() => removeExercise(value.ID)}
-                ></Button>
+                <ButtonContainer>
+                  <Button
+                    label="X"
+                    onClick={() => removeExercise(value.ID)}
+                  ></Button>
+                </ButtonContainer>
                 <RoutineName>{value.Name}</RoutineName>
                 <RoutineDescription>{value.Description}</RoutineDescription>
               </ListRow>
