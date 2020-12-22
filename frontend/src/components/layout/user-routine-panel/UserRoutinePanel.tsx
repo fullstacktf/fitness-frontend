@@ -88,13 +88,13 @@ export const UserRoutinePanel: React.FC<UserRoutinePanelProps> = (
     const elements = UserRoutinePanelProps.exercises.map((exercise) => {
       return (
         <RoutineExercise
-          key={exercise.ID}
+          key={exercise.BaseExercise.ID}
           imageRoute={defaultExercisePicture}
           name={exercise.BaseExercise.Name}
           reps={exercise.Repetitions}
           series={exercise.Series}
           description={exercise.BaseExercise.Description}
-          id={exercise.ID}
+          id={exercise.BaseExercise.ID}
         />
       );
     });

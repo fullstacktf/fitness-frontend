@@ -59,10 +59,10 @@ export const getUserRoutine = async (): Promise<any> => {
 
 export const getUserRoutineExercises = async (): Promise<any> => {
   axios.defaults.withCredentials = true;
-  const ID = await getUserID();
+  const routine = await getUserRoutine();
 
   const filter = {
-    AssignedRoutinesId: ID,
+    AssignedRoutinesId: routine.ID,
   };
 
   return axios
