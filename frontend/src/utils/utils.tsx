@@ -7,8 +7,8 @@ export const PRODUCTION_URL = 'https://api.youlift.xyz';
 export const DEVELOPMENT_DOMAIN = 'localhost';
 export const PRODUCTION_DOMAIN = '.youlift.xyz';
 
-export const CURRENT_URL = DEVELOPMENT_URL;
-export const CURRENT_DOMAIN = DEVELOPMENT_DOMAIN;
+export const CURRENT_URL = PRODUCTION_URL;
+export const CURRENT_DOMAIN = PRODUCTION_DOMAIN;
 
 export const COOKIE_NAME = 'mysession';
 
@@ -34,7 +34,7 @@ export const getUserID = (): Promise<number> => {
 
 export const logout = (): void => {
   if (Cookies.get(COOKIE_NAME)) {
-    Cookies.remove(COOKIE_NAME, { path: '/', domain: DEVELOPMENT_DOMAIN });
+    Cookies.remove(COOKIE_NAME, { path: '/', domain: CURRENT_DOMAIN });
     window.location.replace('/');
   }
 };
@@ -59,10 +59,10 @@ export const getUserRoutine = async (): Promise<any> => {
 
 export const getUserRoutineExercises = async (): Promise<any> => {
   axios.defaults.withCredentials = true;
-  const ID = await getUserID();
+  const routine = await getUserRoutine();
 
   const filter = {
-    AssignedRoutinesId: ID,
+    AssignedRoutinesId: routine.ID,
   };
 
   return axios

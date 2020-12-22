@@ -10,6 +10,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  margin: 2vh;
 `;
 
 const Content = styled.div<ContentProps>`
@@ -28,8 +29,8 @@ const TextContainer = styled.div`
 `;
 
 const Screenshot = styled.img`
-  width: 80.4vh;
-  height: 52.6vh;
+  width: 83.3vh;
+  height: 48vh;
   background: #f89d9d 0% 0% no-repeat padding-box;
   border-radius: 2vh;
   opacity: 1;

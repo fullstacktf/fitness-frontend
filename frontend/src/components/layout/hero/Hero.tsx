@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Workout from './assets/working_out.svg';
 import styled from '@emotion/styled';
+import { useHistory } from 'react-router-dom';
 
 const Container = styled.div`
   background: #f89d9d;
@@ -40,9 +41,16 @@ const Button = styled.a`
   background: #ffffff 0% 0% no-repeat padding-box;
   font: normal normal normal 2vh/2.7vh Inter;
   border-radius: 1vh;
+  cursor: pointer;
 `;
 
 export const Hero: React.FC = (): JSX.Element => {
+  const history = useHistory();
+
+  const onClickButton = () => {
+    history.push('/register');
+  };
+
   return (
     <Container>
       <div>
@@ -55,7 +63,7 @@ export const Hero: React.FC = (): JSX.Element => {
           have! You do the hard work, we track your results and tell you how
           amazing you are.
         </Paragraph>
-        <Button href="##">
+        <Button onClick={onClickButton}>
           <span>Register</span>
         </Button>
       </div>

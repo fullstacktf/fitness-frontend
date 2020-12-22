@@ -19,6 +19,7 @@ import { RoutinePage } from './components/layout/routine-page/RoutinePage';
 import { ExerciseItem } from './components/layout/exercise-item/ExerciseItem';
 import { RoutineItem } from './components/layout/routine-item/RoutineItem';
 import { RoutineCrudPanel } from './components/layout/routine-crud-panel/RoutineCrudPanel';
+import { ContactPage } from './components/layout/contact-page/ContactPage';
 
 function App(): JSX.Element {
   return (
@@ -55,6 +56,7 @@ function App(): JSX.Element {
           <Route exact path="/exercise/:id" component={ExerciseItem} />
           <Route exact path="/routines" component={RoutinePage} />
           <Route exact path="/routine/:id" component={RoutineItem} />
+          <Route exact path="/contact" component={ContactPage} />
         </Switch>
       </Router>
     </div>
